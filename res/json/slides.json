@@ -1,0 +1,47 @@
+[
+	{
+		"sid": "s1",
+		"simage": "/res/img/slides/photos/01-buckingham.jpg",
+		"scap1": "1. Buckingham Palace",
+		"slink1": "https://en.wikipedia.org/wiki/Buckingham_Palace",		
+		"scap2": "More information available at Wikipedia",
+		"slink2": "https://en.wikipedia.org/wiki/Buckingham_Palace",
+		"sdesc": "From Wikipedia, the free encyclopedia<br> Buckingham Palace is the London residence and administrative headquarters of the reigning monarch of the United Kingdom. Located in the City of Westminster, the palace is often at the centre of state occasions and royal hospitality. It has been a focal point for the British people at times of national rejoicing and mourning.  Originally known as Buckingham House, the building at the core of today's palace was a large townhouse built for the Duke of Buckingham in 1703 on a site that had been in private ownership for at least 150 years. It was acquired by King George III in 1761[5] as a private residence for Queen Charlotte and became known as The Queen's House. During the 19th century it was enlarged, principally by architects John Nash and Edward Blore, who constructed three wings around a central courtyard. Buckingham Palace became the London residence of the British monarch on the accession of Queen Victoria in 1837.  The last major structural additions were made in the late 19th and early 20th centuries, including the East front, which contains the well-known balcony on which the royal family traditionally congregates to greet crowds. The palace chapel was destroyed by a German bomb during World War II; the Queen's Gallery was built on the site and opened to the public in 1962 to exhibit works of art from the Royal Collection.  The original early 19th-century interior designs, many of which survive, include widespread use of brightly coloured scagliola and blue and pink lapis, on the advice of Sir Charles Long. King Edward VII oversaw a partial redecoration in a Belle Époque cream and gold colour scheme. Many smaller reception rooms are furnished in the Chinese regency style with furniture and fittings brought from the Royal Pavilion at Brighton and from Carlton House. The palace has 775 rooms, and the garden is the largest private garden in London. The state rooms, used for official and state entertaining, are open to the public each year for most of August and September, and on selected days in winter and spring."
+	},
+	{
+		"sid": "s2",
+		"simage": "/res/img/slides/photos/02-stonehenge.jpg",
+		"scap1": "2. Stonehenge",
+		"slink1": "https://en.wikipedia.org/wiki/Stonehenge",		
+		"scap2": "More information available at Wikipedia",
+		"slink2": "https://en.wikipedia.org/wiki/Stonehenge",
+		"sdesc": "From Wikipedia, the free encyclopedia<br> Stonehenge is a prehistoric monument in Wiltshire, England, 2 miles (3 km) west of Amesbury and 8 miles (13 km) north of Salisbury. Stonehenge's ring of standing stones are set within earthworks in the middle of the most dense complex of Neolithic and Bronze Age monuments in England, including several hundred burial mounds. Archaeologists believe it was constructed from 3000 BC to 2000 BC. The surrounding circular earth bank and ditch, which constitute the earliest phase of the monument, have been dated to about 3100 BC. Radiocarbon dating suggests that the first bluestones were raised between 2400 and 2200 BC, although they may have been at the site as early as 3000 BC. Stonehenge has been a legally protected Scheduled Ancient Monument since 1882 when legislation to protect historic monuments was first successfully introduced in Britain. The site and its surroundings were added to UNESCO's list of World Heritage Sites in 1986. Stonehenge is owned by the Crown and managed by English Heritage; the surrounding land is owned by the National Trust. Stonehenge could have been a burial ground from its earliest beginnings. Deposits containing human bone date from as early as 3000 BC, when the ditch and bank were first dug, and continued for at least another five hundred years."
+	},
+	{
+		"sid": "s3",
+		"simage": "/res/img/slides/photos/03-luxembourg.jpg",
+		"scap1": "3. Luxembourg Gardens",
+		"slink1": "https://en.wikipedia.org/wiki/Jardin_du_Luxembourg",		
+		"scap2": "More information available at Wikipedia",
+		"slink2": "https://en.wikipedia.org/wiki/Jardin_du_Luxembourg",
+		"sdesc": "From Wikipedia, the free encyclopedia<br> The Jardin du Luxembourg, or the Luxembourg Garden, located in the 6th arrondissement of Paris, was created beginning in 1612 by Marie de' Medici, the widow of King Henry IV of France, for a new residence she constructed, the Luxembourg Palace. The garden today is owned by the French Senate, which meets in the Palace. It covers 23 hectares and is known for its lawns, tree-lined promenades, flowerbeds, the model sailboats on its circular basin, and for the picturesque Medici Fountain, built in 1620."
+	},
+	{
+		"sid": "s4",
+		"simage": "/res/img/slides/photos/04-rome.jpg",
+		"scap1": "4. Palatine Hill",
+		"slink1": "https://en.wikipedia.org/wiki/Palatine_Hill",		
+		"scap2": "More information available at Wikipedia",
+		"slink2": "https://en.wikipedia.org/wiki/Palatine_Hill",
+		"sdesc": "From Wikipedia, the free encyclopedia<br> The Palatine Hill is the centermost of the Seven Hills of Rome and is one of the most ancient parts of the city. It stands 40 metres above the Roman Forum, looking down upon it on one side, and upon the Circus Maximus on the other.  It is the etymological origin of the word palace and its cognates in other languages (Italian palazzo, French palais, German Palast, Czech palác, etc.)."
+	},
+	{
+		"sid": "s5",
+		"simage": "/res/img/slides/photos/05-positano.jpg",
+		"scap1": "5. Positano",
+		"slink1": "https://en.wikipedia.org/wiki/Positano",		
+		"scap2": "More information available at Wikipedia",
+		"slink2": "https://en.wikipedia.org/wiki/Positano",
+		"sdesc": "From Wikipedia, the free encyclopedia<br> Positano is a village and comune on the Amalfi Coast (Costiera Amalfitana), in Campania, Italy, mainly in an enclave in the hills leading down to the coast. Positano was a port of the Amalfi Republic in medieval times, and prospered during the sixteenth and seventeenth centuries. By the mid-nineteenth century, however, the town had fallen on hard times. More than half the population emigrated, mostly to America.  Positano was a relatively poor fishing village during the first half of the twentieth century. It began to attract large numbers of tourists in the 1950s, especially after John Steinbeck published his essay about Positano in Harper's Bazaar in May, 1953: 'Positano bites deep', Steinbeck wrote. 'It is a dream place that isn’t quite real when you are there and becomes beckoningly real after you have gone.'"
+	}
+]

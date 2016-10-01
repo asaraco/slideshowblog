@@ -1,0 +1,107 @@
+.subdiv {
+	display: inline-block;
+}
+
+#slideViewPort {
+	display: block;
+	position: relative;
+	width: 100%;
+	text-align: center;
+	transition: box-shadow 0.5s;
+	overflow: hidden;
+}
+#slideviewer {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.slide {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+}
+.slide a {
+	text-decoration: none;
+}
+.caption {
+	font-family: Verdana, Arial, sans-serif;
+	text-decoration: none;
+	text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+	font-size: 1em;
+	font-weight: bold;
+	color: #ffffff;
+	margin: 0.5em 0 0 0.5em;
+	position: relative;
+	white-space: nowrap;
+	text-align: left;
+}
+.caption:hover {
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+	color: #ffffaa
+}
+.subcap {
+	font-family: Verdana, Arial, sans-serif;
+	text-decoration: none;
+	font-size: 1em;
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	bottom: -15px;
+	margin: 0;
+	width: 100%;
+	padding: 0.5em 0.5em 0.8em 0.8em;
+	white-space: nowrap;
+	text-align: left;
+}
+.subcap:hover {
+	text-shadow: 0px 0px 50px rgba(0, 0, 255, 1);
+	color: #00ffff;
+}
+.btnNav  {
+	display: none;
+	cursor: pointer;
+	top: 0px;
+	padding: 0;
+	vertical-align: middle;
+	height: 100%;
+}
+.btnNav img {
+	opacity: 0.0;
+	/* transition: opacity 0.25s, transform 0.05s; */
+}
+.btnPrevSlide {
+	float: left;
+	display: none;
+}
+/*
+.btnPrevSlide img:hover {
+	transform: translateX(-20px);
+}
+*/
+.btnNextSlide {
+	float: right;
+	display: none;
+}
+/*
+.btnNextSlide img:hover {
+	transform: translateX(+20px);
+}
+*/
+
+.blogpost {
+	display: block;
+	margin: auto;
+	width: 100%;
+	padding: 5%;
+	background: #ffffff;
+	font-family: Garamond, "Times New Roman", serif;
+}
+.blogpost h2 {
+	font-size: 2em;
+	padding-top: 0;
+}
+.blogpost p {
+	font-size: 1.2em;
+}

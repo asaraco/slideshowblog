@@ -1,0 +1,85 @@
+.maindiv {
+	margin: 0 auto;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.albumdetails {
+	position: relative;
+	width: 31%;
+	float: left;
+	background: #ffffff;
+	font-family: Verdana, Arial, sans-serif;
+	box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.5);
+	margin: 2% 1% 0 1%;
+	transition: 0.15s linear all;
+}
+.albumdetails a {
+	display: none;
+}
+
+.prevCover {
+	display: none;
+}
+
+.albumart {
+	position: relative;
+	width: 100%;
+	/*display: inline-block;*/
+	/*margin: 1em 1em 1em 1em;*/
+}
+.albumart img {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	/* max-width: 100%;
+	max-height: 100%; */
+	/* box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.2); */
+}
+
+.albuminfo {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	color: white;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+	background: linear-gradient(0deg, rgba(0,0,0,0.9), rgba(0,0,0,0.25), rgba(0,0,0,0.9));
+	z-index: 5;
+}
+
+.infoheader {
+	margin: 5%;
+}
+.infoheader h2 {
+	font-size: 0.8em;
+	margin: 0;
+}
+.infoheader h3 {
+	font-size: 0.6em;
+	margin: 0;
+}
+.infoheader p {
+	font-size: 0.5em;
+	margin: 0;
+}
+.rightinfo {
+	position: absolute;
+	bottom: 5%;
+	right: 5%;
+}
+
+.trackinfo {
+	display: none;
+}
+.tracklist li {
+	margin: 0 0 0.25em 0;
+}
+
+.userdata {
+	display: none;
+}

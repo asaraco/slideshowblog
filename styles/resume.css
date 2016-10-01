@@ -1,0 +1,89 @@
+/*.navlist li:nth-child(2) {
+	color: #ffffff;
+	opacity: 0.25;
+	pointer-events: none;
+}
+*/
+.paper {
+	margin: auto;
+	margin-bottom: 1in;
+	border: 1px solid rgba(200, 200, 200, 1);
+	width: 9in;
+	height: 12in;
+	background-color: rgba(255, 255, 255, 1);
+	box-shadow: 0 0 15px rgba(0,0,0,0.5);
+	transition: box-shadow 0.5s;
+}
+.paper:hover {
+	box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+
+.nameblock {
+	margin: 0.25in 0.5in 0.15in 0.5in;
+	text-align: center;
+	font-family: Verdana, Arial, sans-serif;
+}
+.paper h1 {
+	font-size: 2em;
+	margin: 0 0 0.05in 0;
+}
+.nameblock ul {
+	list-style-type: circle;
+	margin: 0.05in 0 0.02in 0;
+	padding: 0.05in 0 0.05in 0;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
+	font-size: 0.75em;
+}
+.nameblock li {
+	display: inline;
+	padding: 0 1em 0 1em;
+}
+
+.section {
+	position: relative;
+	margin: 0in 0.5in 0.1in 0.5in;
+	font-family: Garamond, "Times New Roman", serif;
+}
+.paper h2 {
+	font-size: 1.2em;
+	font-family: Verdana, Arial, sans-serif;
+	font-variant: small-caps;
+	background-color: rgba(230, 230, 230, 1);
+	padding: 0.02in 0.05in 0.02in 0.05in;
+}
+.paper h2 p {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+.section ul:not(.reful) {
+	margin: 0.10in 0 0 0;
+	padding: 0 0 0 0.25in;
+	
+}
+.section li {
+	margin: 0.05in 0 0 0;
+}
+.section li ul:not(.reful) li {
+	margin: 0.05in 0 0 0;
+}
+
+.pRight {
+	/*float: right;*/
+	position: absolute;
+	top: 0.5em;
+	right: 0.5em;
+}
+
+.reful {
+	font-size: 1.2em;
+	list-style-type: none;
+	margin: 0 0 0.25in -0.35in;
+}
+.reful ul {
+	list-style-type: none;
+	font-size: 0.9em;
+}
+.reful ul li {
+	margin: 0 0 0.05in -0.1in;
+}

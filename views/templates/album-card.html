@@ -1,0 +1,31 @@
+<div class="albumdetails">
+
+	<a href ng-click="closeIt()">x</a>
+	
+	<div class="albumart">
+		<img id="currentCover" ng-src="{{album.coverimage}}"/>
+		<img id="prevCover" ng-src="{{prev.coverimage}}" ng-hide="fade">
+		<!-- img ng-src="{{album.coverimage}}"/-->
+	</div><div class="albuminfo">
+		<div class="infoheader">
+			<div class="leftinfo">
+				<h2>{{album.artist}}</h2>
+				<h3>{{album.albumtitle}}</h3>
+			</div><div class="rightinfo">
+				<p class="relyear">{{album.released}}</p>
+				<p>{{album.genre}}</p>
+			</div>
+		</div>
+		<div class="infodetails">
+		<div class="trackinfo">
+			<ol class="tracklist">
+				<li ng-repeat="track in album.tracks">{{track}}</li>
+			</ol>
+		</div><div class="userdata">
+			<p>Rating: {{album.rating}}</p>
+			<p>{{album.comments}}</p>
+		</div>
+		</div>
+	</div>
+
+</div>

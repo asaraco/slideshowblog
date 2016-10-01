@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyPortfolio">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Slideshow Blog</title>
+	
+	<head>
+		<!-- Favorites Icon -->
+		<link rel="icon" type="image/png" href="yamba_launcher.png" />
+		
+		<!-- Style Sheets -->
+		<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 1024px)" href="/styles/theme.css">
+		<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1023px)" href="/styles/theme_mobile.css">
+		
+		<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 1024px)" href="/styles/blog.css">
+		<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1023px)" href="/styles/blog_mobile.css">
+		
+		<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 1024px)" href="/styles/resume.css">
+		<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1023px)" href="/styles/resume_mobile.css">
+		
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+	</head>
+	
+	<body>
+		<div id="ucPopup">
+			<h1>UNDER CONSTRUCTION!</h1>
+			Welcome to Aaron Saraco's web portfolio!<br>
+			I'm still experimenting with re-structuring this site, refactoring my code to conform to best practices, stabilizing the web server, and getting it to work on all devices.<br>
+			Until then, certain aspects of the site may not work at all.<br>
+			<button id="ucPopupClose">Gotcha</button>
+		</div>
+		
+		<div class="heading" ng-cloak>
+			<div class="poweredby">
+				<i>Powered by &nbsp
+				<a href="https://angularjs.org/" target="blank"><img src="/res/img/logos/AngularJS-small.png" alt="Angular.JS"/></a> &nbsp
+				<a href="https://jquery.com/" target="blank"><img src="/res/img/logos/JQuery_logo.png" alt="jQuery"/></a></i>
+			</div>
+			<h1>Slideshow Blog</h1>
+			<nav-bar></nav-bar>
+		</div>
+		
+		<nav-side></nav-side>
+		
+		<div ng-view class="maindiv"></div>
+		
+		<all-footer></all-footer>
+	</body>
+	
+	<!-- Includes -->
+	<script type="text/javascript" src="javascript/include/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="/javascript/include/angular.min.js"></script>
+	<script type="text/javascript" src="/javascript/include/angular-animate.js"></script>
+	<script type="text/javascript" src="/javascript/include/angular-route.js"></script>
+	
+	<!-- Angular Main App -->
+	<script type="text/javascript" src="/javascript/app.js"></script>
+	<script type="text/javascript" src="/javascript/routes.js"></script>
+	
+	<!-- Angular Directives -->
+	<script type="text/javascript" src="/javascript/directives/navBar.js"></script>
+	<script type="text/javascript" src="/javascript/directives/navSide.js"></script>
+	<script type="text/javascript" src="/javascript/directives/allFooter.js"></script>
+	<script type="text/javascript" src="/javascript/directives/albumCardCurrent.js"></script>
+	<script type="text/javascript" src="/javascript/directives/albumCard.js"></script>
+	<script type="text/javascript" src="/javascript/directives/slidePlayer.js"></script>
+	<script type="text/javascript" src="/javascript/directives/libraryDirective.js"></script>
+	
+	<!-- Angular Controllers -->
+	<script type="text/javascript" src="/javascript/controllers/slideController.js"></script>
+	<script type="text/javascript" src="/javascript/controllers/libraryController.js"></script>
+	
+	<!-- Misc. jQuery Code -->
+	<!--script type="text/javascript" src="/javascript/theme.jq.js"></script-->
+	<!--script type="text/javascript" src="/javascript/blog.jq.js"></script-->
+	<script type="text/javascript" src="/javascript/musicdb.jq.js"></script>
+</html>

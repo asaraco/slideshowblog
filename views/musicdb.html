@@ -1,0 +1,53 @@
+<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 1024px)" href="/styles/musicdb.css">
+<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1023px)" href="/styles/musicdb_mobile.css">
+
+<div library-directive>
+	<div id="tablecontainer">
+		<ul id="viewSelect">
+			<li><a ng-href="#/musicapp"><img src="/res/img/buttons/listView_100.png" alt="List View"></a></li>
+			<li><a ng-href="#/musicapp2"><img src="/res/img/buttons/galleryView_100.png" alt="Gallery View"></a></li>
+		</ul>
+		<table ng-cloak>
+			<tr class="toprow">
+				<th>	Artist			</th>
+				<th>	Album			</th>
+				<th class="altRowH">	Released		</th>
+				<th class="altRowH">	Genre			</th>
+				<th class="altRowH"> <p align="center">Rating</p>	</th>
+			</tr>
+			<tr ng-repeat="album in albums">
+				<td>	<p>{{album.artist}}</p>	</td>
+				<td>	<a href ng-click="setCurrent(album)">{{album.albumtitle}}</a>	</td>
+				<td class="altRow">	<p>{{album.released}}</p>	</td>
+				<td class="altRow">	<p>{{album.genre}}</p>	</td>
+				<td class="altRow" align="center">	<p>{{album.rating}}</p>	</td>
+			</tr>
+		</table>
+	</div>
+	
+	<album-card ng-show="currentAlbum" album="currentAlbum" prev="prevAlbum" fade="hidePrev"></album-card>
+
+
+	<!--form ng-controller="AlbumController as ac" ng-submit="ac.addAlbum(library)">
+			Artist: <input type="text" ng-model="ac.album.artist"/> <br/>
+			Album: <input type="text" ng-model="ac.album.albumtitle"/> <br/>
+			Released: <input type="text" ng-model="ac.album.released"/> <br/>
+			Genre: <input type="text" ng-model="ac.album.genre"/> <br/>
+			Tracks: <input type="textarea" ng-model="ac.album.tracks"/> <br/>
+			
+			Cover art:
+			<input type="file" ng-model="ac.album.coverimage">
+			</input>
+			
+			Rating: <select ng-model="ac.album.rating">
+							<option value=1>1</option>
+							<option value=2>2</option>
+							<option value=3>3</option>
+							<option value=4>4</option>
+							<option value=5>5</option>
+					   </select><br/>
+			User Comments: <input type="textarea" ng-model="ac.album.comments"/> <br/>
+			
+			<input type="submit" class="btn"" value="Submit" />
+	</form-->
+</div>
