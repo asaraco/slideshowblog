@@ -11,16 +11,25 @@ body {
 a {
   text-decoration: none; }
 
+#svgDefs {
+  display: none; }
+
+.svgNavB {
+  height: 100px;
+  width: 100px; }
+
+.navCirc {
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.2); }
+
 .maindiv {
-  margin-top: 1.25in; }
+  margin-top: 1.0in; }
 
 .heading {
-  margin: -0.5em -0.3em 0.5em -0.5em;
-  padding: 0.5em 0.5em 0em 2.2em;
+  margin: -0.5em -0.3em 0 -0.5em;
+  padding: 0.5em 0.5em 0 0;
   text-align: left;
   font-size: 1.5em;
   background: #fafafa;
-  color: #333333;
   box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.1s, opacity 0.1s, color 0.1s;
   width: 105%;
@@ -30,11 +39,13 @@ a {
   position: fixed; }
   .heading:hover {
     box-shadow: 0px 3px 1px 1px rgba(100, 100, 100, 0.4), 0px 4px 6px 5px rgba(0, 0, 0, 0.2);
-    background: white;
-    color: #000000; }
+    background: white; }
   .heading h1 {
-    margin: 0.2em 0 0 0.5em;
+    color: #333333;
+    margin: 0.2em 0 0.5em 1.5em;
     font-size: 1.75em; }
+    .heading h1:hover {
+      color: #000000; }
 
 .poweredby {
   position: absolute;
@@ -46,19 +57,19 @@ a {
     height: 1.5em; }
 
 .navdiv {
+  background: #646464;
   display: inline-block;
   position: relative;
   font-size: 0.75em;
   width: 100%; }
 
 .inner {
-  padding: 0;
+  padding: 0.5em 0 0.5em 0;
   margin: 0; }
 
 .navlist {
   list-style-type: none;
-  padding: 0;
-  margin-left: 1.2em;
+  margin: 0 0 0 1.2em;
   font-weight: bold; }
   .navlist li {
     display: inline; }
@@ -66,16 +77,16 @@ a {
     display: inline-block;
     padding: 0 2.5em 0 0;
     text-decoration: none;
-    text-shadow: 0px 1px 3px rgba(0, 0, 2, 0.6);
+    /*text-shadow: 0px 1px 3px rgba(0, 0, 2, 0.6);*/
     perspective: 10px;
     perspective-origin: 100%;
     transition: color 0.75s, background-color 0.75s, opacity 0.75s, transform 0.1s;
     transition-timing-function: ease-in-out;
-    opacity: 0.5; }
+    opacity: 1.0; }
     .navlist a:link {
-      color: #000000; }
+      color: #eeeeee; }
     .navlist a:visited {
-      color: #000000; }
+      color: #eeeeee; }
     .navlist a:hover {
       color: white;
       text-shadow: 0px 1px 10px rgba(0, 0, 200, 0.6);

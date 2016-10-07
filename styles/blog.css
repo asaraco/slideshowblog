@@ -93,16 +93,11 @@
 
 .blogpost {
   display: block;
-  /*margin: 0 1.5in 0 1.5in;*/
   margin: auto;
   width: 80%;
   padding: 0.5in 1in 1in 1in;
   background: #ffffff;
-  font-family: Garamond, "Times New Roman", serif;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.5s; }
-  .blogpost:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); }
+  font-family: Garamond, "Times New Roman", serif; }
   .blogpost h2 {
     font-size: 2em;
     padding-top: 0; }
