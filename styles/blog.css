@@ -77,19 +77,24 @@
   border: none !important;
   outline: none !important;
   z-index: 0; }
-  .btnNav img {
+  .btnNav svg {
     opacity: 0.0;
     transition: opacity 0.25s, transform 0.05s; }
+  .btnNav .svgNavB {
+    height: 150px;
+    width: 150px; }
 
 .btnPrevSlide {
   float: left; }
-  .btnPrevSlide img:hover {
-    transform: scale(1.4, 1); }
+  .btnPrevSlide svg {
+    transform: scale(-1, 1); }
+    .btnPrevSlide svg:hover {
+      transform: scale(-1.25, 1.25); }
 
 .btnNextSlide {
   float: right; }
-  .btnNextSlide img:hover {
-    transform: scale(1.4, 1); }
+  .btnNextSlide svg:hover {
+    transform: scale(1.25, 1.25); }
 
 .blogpost {
   display: block;

@@ -11,14 +11,14 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				var navVisible = false;
 				$("#slideViewPort")
 					.on('mouseenter', function() {
-						$('.btnPN img').css('opacity', '0.25');
+						$('.btnPN img, .btnPN svg').css('opacity', '0.25');
 						$('.subcap').fadeIn();
 					})
 					.on('mouseleave', function() {
-						$('.btnPN img').css('opacity', '0');
+						$('.btnPN img, .btnPN svg').css('opacity', '0');
 						$('.subcap').fadeOut();
 					});
-				$(".btnPN img")
+				$(".btnPN img, .btnPN svg")
 					.on('mouseenter', function() {
 						$(this).css('opacity', '0.75');
 					})
@@ -33,7 +33,7 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 					});
 					
 				// Pause/Play button hover opacity
-				$(".btnPP img")
+				$(".btnPP img, .btnPN svg")
 					.on('mouseenter', function() {
 						$(this).css('opacity', '0.5');
 					})

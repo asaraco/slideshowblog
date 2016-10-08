@@ -81,23 +81,32 @@ background: transparent;
 border: none !important;
 outline: none !important;
 z-index: 0;
-img {
+svg {
 opacity: 0.0;
 transition: opacity 0.25s, transform 0.05s;
 }
+.svgNavB {
+	height: 150px;
+	width: 150px;
+}
+
 }
 .btnPrevSlide {
 float: left;
-img:hover {
-transform: scale(1.4,1);
+svg {
+	transform: scale(-1,1);
+&:hover {
+transform: scale(-1.25,1.25);
+}
 }
 }
 .btnNextSlide {
 float: right;
-img:hover {
-transform: scale(1.4,1);
+svg:hover {
+transform: scale(1.25,1.25);
 }
 }
+
 
 .blogpost {
 display: block;
