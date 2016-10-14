@@ -4,21 +4,19 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 		link: function(scope, element) {
 			/** jQuery code **/
 			$(document).ready(function(){					
-				var playImg = "/res/img/buttons/play.png";
-				var pauseImg = "/res/img/buttons/pause.png";
 				
 				// Next/Prev button hover opacity
 				var navVisible = false;
 				$("#slideViewPort")
 					.on('mouseenter', function() {
-						$('.btnPN img, .btnPN svg').css('opacity', '0.25');
+						$('.btnPN svg').css('opacity', '0.25');
 						$('.subcap').fadeIn();
 					})
 					.on('mouseleave', function() {
-						$('.btnPN img, .btnPN svg').css('opacity', '0');
+						$('.btnPN svg').css('opacity', '0');
 						$('.subcap').fadeOut();
 					});
-				$(".btnPN img, .btnPN svg")
+				$(".btnPN svg")
 					.on('mouseenter', function() {
 						$(this).css('opacity', '0.75');
 					})
@@ -33,7 +31,7 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 					});
 					
 				// Pause/Play button hover opacity
-				$(".btnPP img, .btnPN svg")
+				$(".btnPP svg")
 					.on('mouseenter', function() {
 						$(this).css('opacity', '0.5');
 					})
@@ -55,32 +53,32 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				// * INITIALIZE SLIDESHOW *
 				var slideInterval;
 				var isPaused = false;
-				var slideWidth = $('#slideViewPort').width();
+				var viewport = $('#slideViewPort');
+				var slideWidth = viewport.width();
 				// Make slideshow 2/3 height of width
-				$('#slideViewPort').css("height", slideWidth*0.4 + "px");
-				//$('#slideshow').offset($('#slideViewPort').offset());
+				viewport.css("height", slideWidth*0.35 + "px");
 				// Recapture slide width when viewport is resized, and adjust inactive slide positions
 				$(window).resize(function() {
 					var oldSlideWidth = slideWidth;
-					slideWidth = $('#slideViewPort').width();
+					slideWidth = viewport.width();
 					$('.hiddenL').css("left", "-" + slideWidth + "px");
 					$('.hiddenR').css("left", slideWidth + "px");
 					//  Make slideshow 2/3 height of width
-					$('#slideViewPort').css("height", slideWidth*0.4 + "px");
-					//$('#slideshow').offset($('#slideViewPort').offset());
+					viewport.css("height", slideWidth*0.4 + "px");
 				});
 				
 				
 				// ***** Main Next/Previous slide functions *****
 				
 				function nextSlide() {
+					var sc = $('.slideCurr');
 					//set/remove "slide is hidden on right/left" classes (for the window resize function)
-					$(".slideCurr").removeClass("hiddenR").addClass("hiddenL");
-					$(".slideCurr").next().removeClass("hiddenL hiddenR");
+					sc.removeClass("hiddenR").addClass("hiddenL");
+					sc.next().removeClass("hiddenL hiddenR");
 					//slide current out of view
-					$(".slideCurr").animate({"left": "-=" + slideWidth + "px"}, "medium" );
+					sc.animate({"left": "-=" + slideWidth + "px"}, "medium" );
 					//simultaneously, target the next one, set it slideWidth to the right, fade it in, and then slide it into view
-					$(".slideCurr").next().fadeIn().css('left', slideWidth + "px").animate({"left": "-=" + slideWidth + "px"}, "medium" )
+					sc.next().fadeIn().css('left', slideWidth + "px").animate({"left": "-=" + slideWidth + "px"}, "medium" )
 					.end()
 					.appendTo('#slideshow');
 					//reset "current" and "next" slide classes to whichever are first & last after the appendTo
@@ -90,11 +88,12 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				}
 				
 				function prevSlide() {
+					var sc = $('.slideCurr');
 					//set/remove classes
-					$(".slideCurr").removeClass("hiddenL").addClass("hiddenR");
+					sc.removeClass("hiddenL").addClass("hiddenR");
 					$(".slidePrev").removeClass("hiddenL hiddenR");
 					//slide current out of view
-					$(".slideCurr").animate({"left": "+=" + slideWidth + "px"}, "medium" );
+					sc.animate({"left": "+=" + slideWidth + "px"}, "medium" );
 					$(".slidePrev").prependTo('#slideshow');
 					//simultaneously, target the previous one, set it slideWidth to the left, fade it in, and then slide it into view
 					$(".slidePrev").fadeIn().css("left", "-" + slideWidth + "px").animate({"left": "+=" + slideWidth + "px"}, "medium" );
@@ -108,14 +107,16 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 					//clearInterval(slideInterval);
 					$interval.cancel(slideInterval);
 					isPaused = true;
-					$('.btnPP img').attr("src", playImg);
+					$('.btnPP use').attr("xlink:href", "#playTri");
+					console.log($('.btnPP use').attr("xlink:href"));
 				}
 				
 				function playSlide() {
 					//slideInterval = setInterval(function() { nextSlide(); }, 4000);
 					slideInterval = $interval(function() { nextSlide(); }, 4000);
 					isPaused = false;
-					$('.btnPP img').attr("src", pauseImg);
+					$('.btnPP use').attr("xlink:href", "#pauseLns");
+					console.log($('.btnPP use').attr("xlink:href"));
 				}
 				// ***** ----------------------------- *****
 				
@@ -162,15 +163,15 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				$(".slide")
 					// When finger touches slide
 					.on('touchstart', function(event) {
+						var sc = $('.slideCurr');
 						keepSwiping = true;
 						$('.subcap').fadeOut();
 						$(".btnPP img").css('opacity', '0');
 						// Reset slide "left" values just in case
-						$(".slideCurr").next().css("left", slideWidth + "px");
+						sc.next().css("left", slideWidth + "px");
 						$(".slidePrev").css("left", (-1 * slideWidth) + "px");
 						// Default to no swipe direction
 						swipeDir = "_";
-						//$("#swipeCounter").text("slideWidth = " + slideWidth + "px");
 						//clearInterval(slideInterval);
 						$interval.cancel(slideInterval);
 						isPaused = true;
@@ -184,7 +185,7 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 						e.preventDefault();						// prevent links & stuff within div from being triggered by touches
 						// fade in prev & next slides so they're both ready to be used
 						// (and so there's no repeated fadeIn call on every touchmove event)
-						$(".slideCurr").next().fadeIn();
+						sc.next().fadeIn();
 						$(".slidePrev").fadeIn();
 						// reset classes
 						$("#slideshow div").removeClass("slideCurr slidePrev");
@@ -193,6 +194,7 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 					})
 					// When finger moves
 					.on('touchmove', function(event) {
+						var sc = $('.slideCurr');
 						if (keepSwiping) {
 							var e = event.originalEvent;
 							touchobj = e.changedTouches[0];		// reference first touch point for this event
@@ -205,10 +207,10 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 								keepSwiping = false;
 								swipeDir = "Right";
 								//set/remove classes
-								$(".slideCurr").removeClass("hiddenL").addClass("hiddenR");
+								sc.removeClass("hiddenL").addClass("hiddenR");
 								$(".slidePrev").removeClass("hiddenL hiddenR");
 								//slide current out of view
-								$(".slideCurr").animate({"left": slideWidth + "px"}, "fast" );
+								sc.animate({"left": slideWidth + "px"}, "fast" );
 								//slide next one into view
 								$(".slidePrev").prependTo('#slideshow');
 								$(".slidePrev").animate({"left": "0px"}, "fast" );
@@ -219,12 +221,12 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 								keepSwiping = false;
 								swipeDir = "Left";
 								//set/remove classes
-								$(".slideCurr").removeClass("hiddenR").addClass("hiddenL");
-								$(".slideCurr").next().removeClass("hiddenL hiddenR");
+								sc.removeClass("hiddenR").addClass("hiddenL");
+								sc.next().removeClass("hiddenL hiddenR");
 								//slide current out of view
-								$(".slideCurr").animate({"left": "-=" + (slideWidth-distx) + "px"}, "medium" );
+								sc.animate({"left": "-=" + (slideWidth-distx) + "px"}, "medium" );
 								//slide next one into view
-								$(".slideCurr").next().animate({"left": "0px" }, "fast" )
+								sc.next().animate({"left": "0px" }, "fast" )
 								.end().appendTo('#slideshow');
 							}
 							// For a touch that shouldn't be considered any kind of swipe
@@ -233,17 +235,17 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 							}
 							// Standard slide movement
 							else {
-								$(".slideCurr").css("left", distx + "px");
+								sc.css("left", distx + "px");
 								
 								// Move next/prev slides depending on swipe direction
 								if (distx > 0) {
 									swipeDir = "Right";	//PREVIOUS
 									$(".slidePrev").css("left", (distx - slideWidth) + "px");
-									$(".slideCurr").next().css("left", (slideWidth + distx) + "px");
+									sc.next().css("left", (slideWidth + distx) + "px");
 								}
 								else {
 									swipeDir = "Left";	//NEXT
-									$(".slideCurr").next().css("left", (slideWidth + distx) + "px");
+									sc.next().css("left", (slideWidth + distx) + "px");
 									$(".slidePrev").css("left", (distx - slideWidth) + "px");
 								}
 							}
@@ -251,15 +253,15 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 					})
 					// When finger is lifted
 					.on('touchend', function(event) {
-						//$("#swipeCounter").text("touchend");
+						var sc = $('.slideCurr');
 						var e = event.originalEvent;
 						touchobj = e.changedTouches[0];
 						e.preventDefault();
 						//If user didn't swipe far enough for transition, revert
 						if (Math.abs(distx) < slideWidth/2) {
-							$(".slideCurr").animate({"left": "-=" + distx + "px"}, "medium" );
+							sc.animate({"left": "-=" + distx + "px"}, "medium" );
 							if (swipeDir == "Left") {
-								$(".slideCurr").next().animate({"left": "-=" + distx + "px"}, "medium" );
+								sc.next().animate({"left": "-=" + distx + "px"}, "medium" );
 							}
 							else {
 								$(".slidePrev").animate({"left": "-=" + distx + "px"}, "medium");

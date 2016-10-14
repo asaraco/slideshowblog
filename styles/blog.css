@@ -29,19 +29,28 @@
   .slide a {
     text-decoration: none; }
 
+.slideGrad {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 25%, transparent 50%); }
+
 .caption {
-  /* font-family: Verdana, Arial, sans-serif; */
-  font-family: 'Cinzel Decorative', Arial, cursive;
+  font-family: Verdana, Arial, sans-serif;
+  /*font-family: 'Cinzel Decorative', Arial, cursive;*/
   text-decoration: none;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-  font-size: 2.5em;
-  font-weight: bold;
+  /*text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);*/
+  font-size: 3em;
+  font-variant: small-caps;
+  /*font-weight: bold;*/
   color: #ffffff;
-  margin: 0.5em 0 0 0.5em;
+  margin: 0.65em 0 0 1em;
   position: relative;
   white-space: nowrap;
   text-align: left;
-  transition: text-shadow 0.5s, color 0.5s; }
+  transition: text-shadow 0.5s, color 0.5s;
+  z-index: 1; }
   .caption:hover {
     text-shadow: 2px 2px 8px black;
     color: #ffffaa; }
@@ -81,25 +90,28 @@
     opacity: 0.0;
     transition: opacity 0.25s, transform 0.05s; }
   .btnNav .svgNavB {
-    height: 150px;
-    width: 150px; }
+    height: 80px;
+    width: 80px; }
+  .btnNav .svgNavB2 {
+    height: 120px;
+    width: 120px; }
 
 .btnPrevSlide {
   float: left; }
   .btnPrevSlide svg {
     transform: scale(-1, 1); }
     .btnPrevSlide svg:hover {
-      transform: scale(-1.25, 1.25); }
+      transform: scale(-1.1, 1.1); }
 
 .btnNextSlide {
   float: right; }
   .btnNextSlide svg:hover {
-    transform: scale(1.25, 1.25); }
+    transform: scale(1.1, 1.1); }
 
 .blogpost {
   display: block;
   margin: auto;
-  width: 80%;
+  width: 70%;
   padding: 0.5in 1in 1in 1in;
   background: #ffffff;
   font-family: Garamond, "Times New Roman", serif; }

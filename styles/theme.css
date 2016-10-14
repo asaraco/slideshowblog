@@ -14,17 +14,17 @@ a {
 #svgDefs {
   display: none; }
 
+svg .navCirc {
+  fill: white; }
 svg .navLine {
-  stroke: black;
-  stroke-width: 5px;
+  stroke: rgba(0, 0, 0, 0.5);
+  stroke-width: 6px;
   stroke-linecap: round; }
 
 .maindiv {
-  margin-top: 1.0in; }
+  margin-top: 1.2in; }
 
 .heading {
-  margin: -0.5em -0.3em 0 -0.5em;
-  padding: 0.5em 0.5em 0 0;
   text-align: left;
   font-size: 1.5em;
   background: #fafafa;
@@ -33,14 +33,14 @@ svg .navLine {
   width: 105%;
   /*height: 1.25in;*/
   top: 0;
-  z-index: 1;
+  z-index: 10;
   position: fixed; }
   .heading:hover {
-    box-shadow: 0px 3px 1px 1px rgba(100, 100, 100, 0.4), 0px 4px 6px 5px rgba(0, 0, 0, 0.2);
+    /*box-shadow: 0px 3px 1px 1px rgba(100, 100, 100, 0.4), 0px 4px 6px 5px rgba(0, 0, 0, 0.2);*/
     background: white; }
   .heading h1 {
     color: #333333;
-    margin: 0.2em 0 0.5em 1.5em;
+    margin: 0.4em 0 0.4em 1em;
     font-size: 1.75em; }
     .heading h1:hover {
       color: #000000; }
@@ -55,7 +55,7 @@ svg .navLine {
     height: 1.5em; }
 
 .navdiv {
-  background: #646464;
+  background: #323232;
   display: inline-block;
   position: relative;
   font-size: 0.75em;
@@ -67,7 +67,7 @@ svg .navLine {
 
 .navlist {
   list-style-type: none;
-  margin: 0 0 0 1.2em;
+  margin: 0;
   font-weight: bold; }
   .navlist li {
     display: inline; }
@@ -137,7 +137,7 @@ svg .navLine {
 .footer {
   background: rgba(100, 100, 100, 0.5);
   color: #dddddd;
-  margin: 0.5em 0 0 0;
+  /*margin: 0.5em 0 0 0;*/
   text-align: center;
   padding: 0.25in 0.25in 0.25in 0.25in; }
 

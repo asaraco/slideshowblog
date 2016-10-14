@@ -2,7 +2,7 @@
 	{
 		"sid": "s1",
 		"simage": "/res/img/slides/photos/01-buckingham.jpg",
-		"scap1": "1. Buckingham Palace",
+		"scap1": "Buckingham Palace",
 		"slink1": "https://en.wikipedia.org/wiki/Buckingham_Palace",		
 		"scap2": "More information available at Wikipedia",
 		"slink2": "https://en.wikipedia.org/wiki/Buckingham_Palace",
@@ -11,7 +11,7 @@
 	{
 		"sid": "s2",
 		"simage": "/res/img/slides/photos/02-stonehenge.jpg",
-		"scap1": "2. Stonehenge",
+		"scap1": "Stonehenge",
 		"slink1": "https://en.wikipedia.org/wiki/Stonehenge",		
 		"scap2": "More information available at Wikipedia",
 		"slink2": "https://en.wikipedia.org/wiki/Stonehenge",
@@ -20,7 +20,7 @@
 	{
 		"sid": "s3",
 		"simage": "/res/img/slides/photos/03-luxembourg.jpg",
-		"scap1": "3. Luxembourg Gardens",
+		"scap1": "Luxembourg Gardens",
 		"slink1": "https://en.wikipedia.org/wiki/Jardin_du_Luxembourg",		
 		"scap2": "More information available at Wikipedia",
 		"slink2": "https://en.wikipedia.org/wiki/Jardin_du_Luxembourg",
@@ -29,7 +29,7 @@
 	{
 		"sid": "s4",
 		"simage": "/res/img/slides/photos/04-rome.jpg",
-		"scap1": "4. Palatine Hill",
+		"scap1": "Palatine Hill",
 		"slink1": "https://en.wikipedia.org/wiki/Palatine_Hill",		
 		"scap2": "More information available at Wikipedia",
 		"slink2": "https://en.wikipedia.org/wiki/Palatine_Hill",
@@ -38,7 +38,7 @@
 	{
 		"sid": "s5",
 		"simage": "/res/img/slides/photos/05-positano.jpg",
-		"scap1": "5. Positano",
+		"scap1": "Positano",
 		"slink1": "https://en.wikipedia.org/wiki/Positano",		
 		"scap2": "More information available at Wikipedia",
 		"slink2": "https://en.wikipedia.org/wiki/Positano",

@@ -4,8 +4,10 @@
 		<div id="slideViewer" slide-player>
 		
 			<div id="slideshow">
+				
 				<div ng-cloak ng-repeat="slide in slides" id="{{slide.sid}}" class="slide" style="background-image: url({{slide.simage}});">
 					<a href="{{slide.slink1}}"><p class="caption">{{slide.scap1}}</p></a>
+					<div class="slideGrad"></div>
 					<a href="{{slide.slink2}}" target="_blank"><p class="subcap">{{slide.scap2}}</p></a>
 				</div>
 			</div>
@@ -16,7 +18,12 @@
 					<use xlink:href="#nextArrow"/>
 				</svg>
 			</button>
-			<button class="btnNav btnPP"><img src="/res/img/buttons/pause.png"></button>
+			<button class="btnNav btnPP">
+				<svg class="svgNavB2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="v1.1"
+					xmlns:xlink="http://www.w3.org/1999/xlink">
+					<use xlink:href="#pauseLns"/>
+				</svg>
+			</button>
 			<button class="btnNav btnPN btnNextSlide">
 				<svg class="svgNavB" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="v1.1"
 					xmlns:xlink="http://www.w3.org/1999/xlink">
