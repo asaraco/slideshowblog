@@ -8,33 +8,37 @@
 <link rel="icon" type="image/png" href="yamba_launcher.png" />
 
 <!-- Style Sheets -->
-<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 1024px)" href="/styles/theme.css">
-<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1023px)" href="/styles/theme_mobile.css">
-
-<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 1024px)" href="/styles/blog.css">
-<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1023px)" href="/styles/blog_mobile.css">
-
-<link rel="stylesheet" type="text/css" media="screen and (min-device-width: 1024px)" href="/styles/resume.css">
-<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 1023px)" href="/styles/resume_mobile.css">
+<link rel="stylesheet" type="text/css" href="/styles/theme.css">
 
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
 
 <!--  SVG Definitions -->
 <svg id="svgDefs" xmlns="http://www.w3.org/2000/svg" version="v1.1">
+	<!-- Navigation bar icons -->
+	<symbol id="navHome">
+		<rect class="navRect" height="50" width="50" fill="none" rx="5" />
+	</symbol>
+	<symbol id="navResume">
+		<rect class="navRect" height="50" width="50" fill="none" rx="5" />
+		<line class="navLine" x1=5 y1=10 x2=45 y2=10 />
+		<line class="navLine" x1=5 y1=20 x2=45 y2=20 />
+		<line class="navLine" x1=5 y1=30 x2=45 y2=30 />
+		<line class="navLine" x1=5 y1=40 x2=45 y2=40 />
+	</symbol>
+	
+	<!-- Slideshow player icons -->
 	<symbol id="nextArrow">
-		<circle class="navCirc"	cx=50 cy=50	r=40 		/>
-		<polyline points="43,28 66,50 43,72" fill="none" class="navLine"	/>
+		<circle class="sbCirc"	cx=50 cy=50	r=40 		/>
+		<polyline class="sbLine" points="43,28 66,50 43,72" fill="none"	/>
 	</symbol>
 	<symbol id="playTri">
-		<circle class="navCirc"	cx=50 cy=50	r=40 		/>
+		<circle class="sbCirc"	cx=50 cy=50	r=40 		/>
 		<polygon points="43,25 68,50 43,75"	/>
 	</symbol>
 	<symbol id="pauseLns">
-		<circle class="navCirc"	cx=50 cy=50	r=40 		/>
-		<line x1=44 y1=25 x2=44 y2=75 class="navLine"	/>
-		<line x1=57 y1=25 x2=57 y2=75 class="navLine"	/>
+		<circle class="sbCirc"	cx=50 cy=50	r=40 		/>
+		<line class="sbLine" x1=44 y1=25 x2=44 y2=75	/>
+		<line class="sbLine" x1=57 y1=25 x2=57 y2=75	/>
 	</symbol>
 </svg>
 </head>
@@ -86,6 +90,7 @@ Until then, certain aspects of the site may not work at all.<br>
 
 <!-- Angular Controllers -->
 <script type="text/javascript" src="/javascript/controllers/slideController.js"></script>
+<script type="text/javascript" src="/javascript/controllers/slideControllerVacations.js"></script>
 <script type="text/javascript" src="/javascript/controllers/libraryController.js"></script>
 
 <!-- Misc. jQuery Code -->

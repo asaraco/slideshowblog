@@ -9,6 +9,11 @@ angular.module('MyPortfolio').config(function($routeProvider) {
 			controller: "SlideController"
 		})
 		
+		.when('/vacations', {
+			templateUrl: "/views/vacations.html",
+			controller: "SlideControllerVacations"
+		})
+		
 		.when('/resume', {
 			templateUrl: "/views/resume.html"
 		})
@@ -21,6 +26,10 @@ angular.module('MyPortfolio').config(function($routeProvider) {
 		.when('/musicapp2', {
 			templateUrl: "/views/musicgallery.html",
 			controller: "LibraryController"
+		})
+		
+		.when('/reviews/:name', {
+			templateUrl: function(params) { return "/views/reviews/"+params.name+".html" }
 		})
 		
 		.otherwise( {redirectTo: '/' } );

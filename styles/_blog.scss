@@ -1,6 +1,53 @@
+@import '_mixins';
+	
 .subdiv {
 display: inline-block;
+width: 100%;
 }
+
+.blogpost {
+display: block;
+margin: auto;
+padding: 0.5in 1in 1in 1in;
+width: 70%;
+background: #ffffff;
+font-size: 1.2em;
+font-family: Tiempos, "Times New Roman", serif;
+	h2 {
+		font-family: Verdana, Arial, sans-serif;
+	}
+	h3 {
+		font-family: Verdana, Arial, sans-serif;
+		font-size: 1.4em;
+		&:before {
+			content: url(/res/img/layout/hsep.svg);
+			position: absolute;
+			}
+	}
+@include respond-to(max-width, 1024px) {
+	width: 80%;
+	font-size: 1em;
+	padding: 0.4in 0.8in 0.8in 0.8in;
+	}
+@include respond-to(max-width, 640px) {
+	width: 100%;
+	font-size: 0.9em;
+	padding: 0.25in 0.5in 0.5in 0.5in;
+	}
+	h2 {
+		font-size: 1.8em;
+		padding-top: 0;
+	}
+	h3 {
+		font-size: 1em;
+	}
+}
+
+#swipeCounter {
+font-size: 0.8em;
+}
+
+
 #slideViewPort {
 width: 100%;
 margin: 0;
@@ -40,12 +87,15 @@ background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 
 }
 .caption {
 font-family: Verdana, Arial, sans-serif;
-/*font-family: 'Cinzel Decorative', Arial, cursive;*/
 text-decoration: none;
-/*text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);*/
 font-size: 3em;
+@include respond-to(max-width, 720px) {
+	font-size: 2em;
+	}
+@include respond-to(max-width, 640px) {
+	font-size: 1.5em;
+	}
 font-variant: small-caps;
-/*font-weight: bold;*/
 color: #ffffff;
 margin: 0.65em 0 0 1em;
 position: relative;
@@ -118,25 +168,4 @@ float: right;
 svg:hover {
 transform: scale(1.1,1.1);
 }
-}
-
-
-.blogpost {
-display: block;
-margin: auto;
-width: 70%;
-padding: 0.5in 1in 1in 1in;
-background: #ffffff;
-font-family: Garamond, "Times New Roman", serif;
-h2 {
-font-size: 2em;
-padding-top: 0;
-}
-p {
-font-size: 1.2em;
-}
-}
-
-#swipeCounter {
-font-size: 0.8em;
 }
