@@ -1,0 +1,29 @@
+[
+	{
+		"sid": "s1",
+		"simage": "/res/img/slides/newbern.jpg",
+		"scap1": "My Resume",
+		"slink1": "#/resume",
+		"scap2": "Welcome to my portfolio site! Check out my resume!",
+		"slink2": "#/resume",
+		"sdesc": ""
+	},
+	{
+		"sid": "s2",
+		"simage": "/res/img/slides/photos/04-rome.jpg",
+		"scap1": "Vacation Slides",
+		"slink1": "#/vacations",		
+		"scap2": "Check out a different slideshow to prove I didn't just hardcode this!",
+		"slink2": "#/vacations",
+		"sdesc": ""
+	},
+	{
+		"sid": "s3",
+		"simage": "/res/img/slides/mm_changes_slide.png",
+		"scap1": "MUTEMATH - Changes",
+		"slink1": "#/reviews/mm_changes",		
+		"scap2": "Read the review",
+		"slink2": "#/reviews/mm_changes",
+		"sdesc": ""
+	}
+]

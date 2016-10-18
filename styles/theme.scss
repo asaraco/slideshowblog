@@ -1,0 +1,49 @@
+@import '_mixins';
+
+@import '_main';
+@import '_blog';
+@import '_resume';
+
+$sbForeColor: rgba(0, 0, 0, 0.5);
+$sbBgColor: white;
+$navForeColor: rgba(255, 255, 255, 1);
+
+*{ box-sizing: border-box; }
+body {
+font-family: Verdana, Arial, sans-serif;
+background: #dddddd;
+display: block;
+margin: 0;
+font-size: 12pt;
+}
+a {
+text-decoration: none;
+}
+
+#svgDefs {
+	display: none;
+}
+svg {
+.sbCirc {
+	fill: $sbBgColor;
+	}
+.sbLine {
+	stroke: $sbForeColor;
+	stroke-width: 6px;
+	stroke-linecap: round;
+	}
+.navRect {
+	stroke: $navForeColor;
+	stroke-width: 2px;
+	}
+.navLine {
+	stroke: $navForeColor;
+	stroke-width: 2px;
+	stroke-linecap: round;
+	}
+.hsLine {
+	stroke: black;
+	stroke-width: 5px;
+	stroke-linecap: round;
+	}
+}

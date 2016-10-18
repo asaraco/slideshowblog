@@ -3,7 +3,8 @@ angular.module('MyPortfolio').controller('SlideController', [ '$scope', '$http',
 	
 	$scope.slides = [];
 	
-	$http.get('/res/json/slides.json').success(function(data) {
+	$http.get('/res/json/slides_main.json').success(function(data) {
 		$scope.slides = data;
 	});
+	
 }]);

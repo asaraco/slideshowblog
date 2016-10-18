@@ -67,12 +67,12 @@ angular.module('MyPortfolio').directive("navBar", function() {
 				/***** PC THEME *****/
 				
 				// Make navdiv links black on hover
-				$(".navdiv").on('mouseenter', function() {
+				/*$(".navdiv").on('mouseenter', function() {
 					$('.navlist a, .navdiv img').css('opacity', '1');
 				})
 				.on('mouseleave', function() {
 					$('.navlist a, .navdiv img').css('opacity', '0.5');
-				});
+				});*/
 				
 				// Make navigation links work for touch
 				$(".navdiv a").on("touchend", function(event) {
