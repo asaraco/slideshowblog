@@ -306,6 +306,8 @@
   .btnNav .svgNavB2 {
     height: 120px;
     width: 120px; }
+  .btnNav .btnHide {
+    visibiity: hidden; }
 
 .btnPrevSlide {
   float: left; }

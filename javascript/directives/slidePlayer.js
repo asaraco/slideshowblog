@@ -9,6 +9,7 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				var navVisible = false;
 				$("#slideViewPort")
 					.on('mouseenter', function() {
+						$('.btnNav').removeClass('.btnHide');
 						$('.btnPN svg').css('opacity', '0.25');
 						$('.subcap').fadeIn();
 					})
@@ -46,9 +47,11 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 					});
 				
 				// Make links within slideshow work for touch
+				// This functionality is being moved to the "end of swipe" behavior
+				/*
 				$(".slide a").on("touchend", function(event) {
 					window.location.href = $(this).attr("href");
-				});
+				});*/
 
 				// * INITIALIZE SLIDESHOW *
 				var slideInterval;
@@ -104,7 +107,6 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				}
 				
 				function pauseSlide() {
-					//clearInterval(slideInterval);
 					$interval.cancel(slideInterval);
 					isPaused = true;
 					$('.btnPP use').attr("xlink:href", "#playTri");
@@ -112,7 +114,6 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				}
 				
 				function playSlide() {
-					//slideInterval = setInterval(function() { nextSlide(); }, 4000);
 					slideInterval = $interval(function() { nextSlide(); }, 4000);
 					isPaused = false;
 					$('.btnPP use').attr("xlink:href", "#pauseLns");
@@ -125,7 +126,6 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				
 				$(".btnNextSlide").on('click', function() {
 					if (isPaused==false) {
-						//clearInterval(slideInterval);
 						$interval.cancel(slideInterval);
 						nextSlide();
 						playSlide();
@@ -136,7 +136,6 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				});
 				
 				$(".btnPrevSlide").on('click', function() {
-					//clearInterval(slideInterval);
 					$interval.cancel(slideInterval);
 					prevSlide();
 					pauseSlide();
@@ -163,6 +162,7 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				$(".slide")
 					// When finger touches slide
 					.on('touchstart', function(event) {
+						$('.btnNav').addClass('.btnHide');
 						var sc = $('.slideCurr');
 						keepSwiping = true;
 						$('.subcap').fadeOut();
@@ -262,9 +262,11 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 							sc.animate({"left": "-=" + distx + "px"}, "medium" );
 							if (swipeDir == "Left") {
 								sc.next().animate({"left": "-=" + distx + "px"}, "medium" );
-							}
-							else {
+							} else if (swipeDir == "Right") {
 								$(".slidePrev").animate({"left": "-=" + distx + "px"}, "medium");
+							} else {
+								//Swipe wasn't far enough to be considered left or right, so treat as tap (trigger a href)
+								window.location.href = $('.slideCurr a').attr("href");
 							}
 						}
 						// reset classes
@@ -272,12 +274,10 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 						$('.slide:first').addClass("slideCurr");
 						$('.slide:last').addClass("slidePrev");
 						
-						// set opacity of control elements similar to mouse hover, but disappear after 5 seconds
+						// set opacity of caption similar to mouse hover, but disappear after 5 seconds
 						$('.subcap').fadeIn();
-						//$(".btnPP img").css('opacity', '0.5');
 						setTimeout(function(){
 							$('.subcap').fadeOut();
-							//$(".btnPP img").css('opacity', '0');
 						}, 5000);
 						
 						// reset "touch distance" measurement (probably not necessary, but it's clean)
@@ -302,8 +302,7 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 					$('.slide:last').addClass("slidePrev");
 					
 					//Start the initial slideshow interval, which will continue to run automatically until interrupted.
-					//This interval will be destroyed if the user clicks an arrow, but a new one will be created.
-					//slideInterval = setInterval(function() { nextSlide(); }, 4000);				
+					//This interval will be destroyed if the user clicks an arrow, but a new one will be created.			
 					scope.$apply(function() {
 						slideInterval = $interval(function() { nextSlide(); }, 4000);
 					});

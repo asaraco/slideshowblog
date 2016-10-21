@@ -163,7 +163,9 @@ transition: opacity 0.25s, transform 0.05s;
 	height: 120px;
 	width: 120px;
 	}
-
+.btnHide {
+	visibiity: hidden;
+	}
 }
 .btnPrevSlide {
 float: left;
