@@ -4,9 +4,10 @@
 @import '_blog';
 @import '_resume';
 
-$sbForeColor: rgba(0, 0, 0, 0.5);
+$sbFgColor: rgba(0, 0, 0, 0.5);
 $sbBgColor: white;
-$navForeColor: rgba(255, 255, 255, 1);
+$navFgColor: rgba(255, 255, 255, 1);
+$navBgColor: rgba(25, 25, 25, 1);
 
 *{ box-sizing: border-box; }
 body {
@@ -28,18 +29,22 @@ svg {
 	fill: $sbBgColor;
 	}
 .sbLine {
-	stroke: $sbForeColor;
+	stroke: $sbFgColor;
 	stroke-width: 6px;
 	stroke-linecap: round;
 	}
 .navRect {
-	stroke: $navForeColor;
+	stroke: $fgDark;
 	stroke-width: 2px;
+	fill: $bgDark;
 	}
 .navLine {
-	stroke: $navForeColor;
+	stroke: $fgDark;
 	stroke-width: 2px;
 	stroke-linecap: round;
+	}
+.navFill {
+	fill: $fgDark;
 	}
 .hsLine {
 	stroke: black;

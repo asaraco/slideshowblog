@@ -1,10 +1,13 @@
 .maindiv {
-  margin-top: 1.2in; }
+  margin-top: 1.4in; }
+  @media screen and (max-width: 792px) {
+    .maindiv {
+      margin-top: 0.85in; } }
 
 .heading {
   text-align: left;
   font-size: 1.5em;
-  background: #fafafa;
+  background: #ffffff;
   box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.1s, opacity 0.1s, color 0.1s;
   width: 100%;
@@ -19,23 +22,27 @@
     color: #333333;
     margin: 0.4em 0 0.4em 1em;
     font-size: 1.75em; }
-    @media screen and (max-width: 720px) {
+    @media screen and (max-width: 792px) {
       .heading h1 {
+        margin: 0.4em 0 0.4em 0.6em;
         font-size: 1em; } }
     .heading h1:hover {
-      color: #000000; }
+      color: black; }
 
 .poweredby {
   position: absolute;
   right: 0.25in;
   padding: 0.1in 0.1in 0 0;
   font-size: 0.5em;
-  color: #666666; }
+  color: #888888; }
   .poweredby img {
-    height: 1.5em; }
+    height: 1.25em; }
+  @media screen and (max-width: 640px) {
+    .poweredby {
+      display: none; } }
 
 .navdiv {
-  background: #323232;
+  background: #333333;
   display: inline-block;
   position: relative;
   font-size: 0.75em;
@@ -53,43 +60,45 @@
     .navlist li a {
       display: inline-block;
       margin: 0;
-      padding: 0.5em 1em 0.5em 1em;
+      padding: 0.5em 1em 0.5em 0;
       text-decoration: none;
       transition: all 0.75s;
       transition-timing-function: ease-in-out;
       opacity: 1.0; }
-      .navlist li a p {
-        margin: 0 auto; }
-      @media screen and (max-width: 640px) {
-        .navlist li a {
-          width: 25px;
-          height: 25px;
-          padding: 0;
-          overflow: hidden; }
-          .navlist li a p {
-            display: none; }
-          .navlist li a .svgNavHome {
-            position: absolute;
-            top: 5px; } }
+      .navlist li a span {
+        position: relative;
+        margin: 0 auto;
+        bottom: 7px; }
       .navlist li a:link {
         color: #eeeeee; }
       .navlist li a:visited {
         color: #eeeeee; }
       .navlist li a:hover {
-        color: #646464;
+        color: #333333;
         background-color: rgba(220, 220, 255, 0.7);
         transition: color 0.1s, background-color 0.25s; }
       .navlist li a:active {
         color: rgba(180, 200, 180, 0.8);
         transform: scale(1.1, 1.1); }
+  @media screen and (max-width: 792px) {
+    .navlist {
+      margin: 4px 0 2px 0;
+      padding: 0 0 0 0.8em; }
+      .navlist li a {
+        padding: 0; }
+        .navlist li a span {
+          display: none; }
+      .navlist .svgNavHome {
+        margin: 0; } }
 
 .svgNavHome {
-  display: none;
-  height: 50px;
-  width: 50px; }
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  margin: 0 0.5em; }
   @media screen and (max-width: 640px) {
     .svgNavHome {
-      display: inline-block; } }
+      padding: 0; } }
 
 #sidebar {
   display: none;
@@ -123,8 +132,8 @@
   cursor: pointer;
   position: absolute; }
   #hamburger-menu:hover {
-    -webkit-filter: drop-shadow(0px 0px 2px #555555);
-    filter: drop-shadow(0px 0px 2px #555555); }
+    -webkit-filter: drop-shadow(0px 0px 2px #888888);
+    filter: drop-shadow(0px 0px 2px #888888); }
   #hamburger-menu img {
     width: 100%;
     opacity: 0.5; }
@@ -134,7 +143,7 @@
 
 .footer {
   background: rgba(100, 100, 100, 0.5);
-  color: #dddddd;
+  color: #eeeeee;
   /*margin: 0.5em 0 0 0;*/
   text-align: center;
   padding: 0.25in 0.25in 0.25in 0.25in; }
@@ -150,7 +159,7 @@
   padding: 0.25in 0.25in 0.25in 0.25in;
   text-align: center;
   background: #ffff96;
-  box-shadow: 0px 0px 4px 0px #444444; }
+  box-shadow: 0px 0px 4px 0px #888888; }
   #ucPopup h1 {
     margin-bottom: 0.25in;
     font-size: 2em; }
@@ -160,7 +169,7 @@
   padding: 0.5em;
   background: yellow;
   border: none;
-  box-shadow: 0px 5px 4px 0px #444444;
+  box-shadow: 0px 5px 4px 0px #888888;
   font-size: 1.5em;
   cursor: pointer; }
 
@@ -168,43 +177,169 @@
   display: inline-block;
   width: 100%; }
 
+.tagsList {
+  text-align: left;
+  list-style: none;
+  border-top: 1px solid #888888;
+  padding: 2% 0;
+  margin: 0 5%; }
+  .tagsList li {
+    display: inline-block;
+    margin-right: 1em; }
+
+.tagsHead {
+  color: black;
+  text-align: left;
+  display: none; }
+
+.tag {
+  border-radius: 10px;
+  padding: 5px 12px;
+  box-shadow: 0 1px 1px 1px transparent;
+  font-size: 0.5em;
+  background: #646464;
+  color: white;
+  transition: box-shadow 0.1s;
+  /*&:after {
+  	content: " X";
+  	color: rgba(0, 0, 0, 0.5);
+  	}
+  &:before {
+  	content: " X";
+  	color: rgba(0, 0, 0, 0);
+  	}*/ }
+  .tag:hover {
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.4); }
+
+.tagGenre {
+  background: #804080; }
+
+.tagArtist {
+  background: #404080; }
+
+figure {
+  background: black;
+  color: white;
+  padding: 1%;
+  margin: 2%;
+  max-width: 30%;
+  float: right; }
+  figure figcaption {
+    font-family: Verdana, Arial, sans-serif;
+    font-variant: small-caps; }
+    figure figcaption ul {
+      margin: 0;
+      padding: 0;
+      text-align: center; }
+      figure figcaption ul li {
+        display: inline-block;
+        margin: 0.2em 0.75em 0 0.75em; }
+  figure .reviewAlbumCover {
+    max-width: 100%; }
+  @media screen and (max-width: 792px) {
+    figure figcaption {
+      font-size: 0.7em; } }
+  @media screen and (max-width: 640px) {
+    figure {
+      display: block;
+      min-width: 100%;
+      margin: 0;
+      float: none; }
+      figure figcaption {
+        font-size: 1em; }
+      figure .reviewAlbumCover {
+        display: block;
+        max-width: 60%;
+        margin: 5% auto 0 auto; } }
+
 .blogpost {
   display: block;
   margin: auto;
-  padding: 0.5in 1in 1in 1in;
-  width: 70%;
-  background: #ffffff;
-  font-size: 1.2em;
-  font-family: Tiempos, "Times New Roman", serif; }
-  .blogpost h2 {
-    font-family: Verdana, Arial, sans-serif; }
-  .blogpost h3 {
-    font-family: Verdana, Arial, sans-serif;
-    font-size: 1.4em; }
-    .blogpost h3:before {
-      content: url(/res/img/layout/hsep.svg);
-      position: absolute; }
+  width: 70%; }
   @media screen and (max-width: 1024px) {
     .blogpost {
-      width: 80%;
-      font-size: 1em;
-      padding: 0.4in 0.8in 0.8in 0.8in; } }
+      width: 80%; } }
   @media screen and (max-width: 640px) {
     .blogpost {
       width: 100%;
+      margin: 0;
+      padding: 0; } }
+
+.blogheader {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  background: #eeeeee;
+  box-shadow: 0px -1px 5px 1px rgba(0, 0, 0, 0.5) inset; }
+  @media screen and (max-width: 640px) {
+    .blogheader {
+      display: block;
+      width: 100%; } }
+  .blogheader .reviewHeader {
+    display: inline-block;
+    float: right;
+    position: relative;
+    padding: 3em 0 0 0;
+    min-width: 62%;
+    max-width: 66%;
+    text-align: center;
+    color: #333333; }
+    @media screen and (max-width: 1024px) {
+      .blogheader .reviewHeader {
+        padding: 2em 0 0 0; } }
+    @media screen and (max-width: 640px) {
+      .blogheader .reviewHeader {
+        padding: 0;
+        min-width: 100%;
+        display: block;
+        float: none; } }
+    .blogheader .reviewHeader h2 {
+      margin: 0;
+      font-family: "Old Standard TT", "Times New Roman", serif;
+      font-size: 6em; }
+    .blogheader .reviewHeader .rhArtist, .blogheader .reviewHeader .rhAlbum {
+      display: inline-block;
+      margin: 0;
+      font-family: Verdana, Arial, sans-serif;
+      font-size: 2em; }
+    .blogheader .reviewHeader .rhArtist {
+      font-weight: bold;
+      text-align: right;
+      padding-right: 0.25em; }
+    .blogheader .reviewHeader .rhAlbum {
+      text-align: left;
+      padding-left: 0.25em; }
+    .blogheader .reviewHeader h4 {
+      font-family: "Old Standard TT", "Times New Roman", serif;
+      font-style: italic; }
+    @media screen and (max-width: 1360px) {
+      .blogheader .reviewHeader h2 {
+        font-size: 4em; } }
+    @media screen and (max-width: 792px) {
+      .blogheader .reviewHeader h2 {
+        font-size: 3em; }
+      .blogheader .reviewHeader .rhArtist, .blogheader .reviewHeader .rhAlbum {
+        font-size: 1.8em; }
+      .blogheader .reviewHeader h4 {
+        margin: 1em 0 1em 0; } }
+
+article {
+  padding: 1in 1.25in 1in 1.25in;
+  background: #ffffff;
+  font-size: 1.2em;
+  line-height: 1.75em;
+  font-family: Tiempos, "Times New Roman", serif; }
+  @media screen and (max-width: 1024px) {
+    article {
+      font-size: 1em;
+      padding: 0.4in 0.8in 0.8in 0.8in; } }
+  @media screen and (max-width: 640px) {
+    article {
       font-size: 0.9em;
       padding: 0.25in 0.5in 0.5in 0.5in; } }
-  .blogpost h2 {
-    font-size: 1.8em;
-    padding-top: 0; }
-  .blogpost h3 {
-    font-size: 1em; }
-
-.reviewAlbumCover {
-  display: block;
-  max-width: 50%;
-  margin: 0.5in auto;
-  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.5); }
+  article ul li {
+    line-height: 1.5em;
+    margin-bottom: 1em; }
 
 #swipeCounter {
   font-size: 0.8em; }
@@ -256,7 +391,7 @@
   text-align: left;
   transition: text-shadow 0.5s, color 0.5s;
   z-index: 1; }
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 792px) {
     .caption {
       font-size: 2em; } }
   @media screen and (max-width: 640px) {
@@ -423,12 +558,15 @@ svg .sbLine {
   stroke-width: 6px;
   stroke-linecap: round; }
 svg .navRect {
-  stroke: white;
-  stroke-width: 2px; }
+  stroke: #eeeeee;
+  stroke-width: 2px;
+  fill: #333333; }
 svg .navLine {
-  stroke: white;
+  stroke: #eeeeee;
   stroke-width: 2px;
   stroke-linecap: round; }
+svg .navFill {
+  fill: #eeeeee; }
 svg .hsLine {
   stroke: black;
   stroke-width: 5px;

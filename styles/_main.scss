@@ -1,13 +1,23 @@
 @import '_mixins';
 
+$fgLight: #333333;
+$fgMed: #888888;
+$fgDark: #eeeeee;
+$bgLight: #ffffff;
+$bgMed: #999999;
+$bgDark: #333333; 
+
 .maindiv {
-margin-top: 1.2in;
+	margin-top: 1.4in;
+	@include respond-to($breakpointType, $breakpoint3) {
+		margin-top: 0.85in;
+	}
 }
 
 .heading {
 text-align: left;
 font-size: 1.5em;
-background: rgba(250, 250, 250, 1.0);
+background: $bgLight;
 box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.2);
 transition: box-shadow 0.1s, opacity 0.1s, color 0.1s;
 width: 100%;
@@ -20,31 +30,35 @@ position: fixed;
 background: rgba(255, 255, 255, 1.0);
 }
 h1 {
-color: #333333;
+color: $fgLight;
 margin: 0.4em 0 0.4em 1em;
 font-size: 1.75em;
-@include respond-to(max-width, 720px) {
+@include respond-to($breakpointType, $breakpoint3) {
+	margin: 0.4em 0 0.4em 0.6em;
 	font-size: 1em;
 	}
 &:hover {
-color: #000000;
+color: black;
 }
 }
 }
 
 .poweredby {
-position: absolute;
-right: 0.25in;
-padding: 0.1in 0.1in 0 0;
-font-size: 0.5em;
-color: #666666;
-img {
-height: 1.5em;
-}
+	position: absolute;
+	right: 0.25in;
+	padding: 0.1in 0.1in 0 0;
+	font-size: 0.5em;
+	color: $fgMed;
+	img {
+		height: 1.25em;
+		}
+	@include respond-to($breakpointType, $breakpoint2) {
+		display: none;
+		}
 }
 
 .navdiv {
-background: rgba(50, 50, 50, 1.0);
+background: $bgDark;
 display: inline-block;
 position: relative;
 font-size: 0.75em;
@@ -64,35 +78,24 @@ margin: 0;
 		a {
 			display: inline-block;
 			margin: 0;
-			padding: 0.5em 1em 0.5em 1em;
+			padding: 0.5em 1em 0.5em 0;
 			text-decoration: none;
 			transition: all 0.75s;
 			transition-timing-function: ease-in-out;
 			opacity: 1.0;
-			p {
+			span {
+				position: relative;
 				margin: 0 auto;
-			}
-			@include respond-to(max-width, 640px) {
-				width: 25px;
-				height: 25px;
-				padding: 0;
-				overflow: hidden;
-				p {
-					display: none;
-				}
-				.svgNavHome {
-					position: absolute;
-					top: 5px;
-				}
+				bottom: 7px;
 			}
 			&:link {
-			color: #eeeeee;
+			color: $fgDark;
 			}
 			&:visited {
-			color: #eeeeee;
+			color: $fgDark;
 			}
 			&:hover {
-			color: rgba(100, 100, 100, 1);
+			color: $fgLight;
 			background-color: rgba(220, 220, 255, 0.7);
 			transition: color 0.1s, background-color 0.25s;
 			}
@@ -102,14 +105,29 @@ margin: 0;
 			}
 		}
 	}
+	@include respond-to($breakpointType, $breakpoint3) {
+		margin: 4px 0 2px 0;
+		padding: 0 0 0 0.8em;
+		li a {
+			padding: 0;
+			span {
+				display: none;
+				}
+			}
+			.svgNavHome {
+				margin: 0;
+				}
+	}
 }
 
 .svgNavHome {
-	display: none;
-	height: 50px;
-	width: 50px;
-	@include respond-to(max-width, 640px) {
-		display: inline-block;
+	//display: none;
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	margin: 0 0.5em; 
+	@include respond-to($breakpointType, $breakpoint2) {
+		padding: 0;
 	}
 }
 
@@ -131,8 +149,8 @@ img {
 width: 100%;
 transition: all 0.75s;
 &:hover {
--webkit-filter: drop-shadow(0px 0px 4px #333333);
-filter: drop-shadow(0px 0px 4px #333333);
+-webkit-filter: drop-shadow(0px 0px 4px $fgLight);
+filter: drop-shadow(0px 0px 4px $fgLight);
 transition: all 0.25s;
 }
 }
@@ -150,8 +168,8 @@ background: none;
 cursor: pointer;
 position: absolute;
 &:hover {
--webkit-filter: drop-shadow(0px 0px 2px #555555);
-filter: drop-shadow(0px 0px 2px #555555);
+-webkit-filter: drop-shadow(0px 0px 2px $fgMed);
+filter: drop-shadow(0px 0px 2px $fgMed);
 }
 img {
 width: 100%;
@@ -164,7 +182,7 @@ display: none;
 }
 .footer {
 background: rgba(100, 100, 100, 0.5);
-color: #dddddd;
+color: $fgDark;
 /*margin: 0.5em 0 0 0;*/
 text-align: center;
 padding: 0.25in 0.25in 0.25in 0.25in;
@@ -181,7 +199,7 @@ z-index: 10;
 padding: 0.25in 0.25in 0.25in 0.25in;
 text-align: center;
 background: rgba(255, 255, 150, 1);
-box-shadow: 0px 0px 4px 0px #444444;
+box-shadow: 0px 0px 4px 0px $fgMed;
 h1 {
 margin-bottom: 0.25in;
 font-size: 2em;
@@ -193,7 +211,7 @@ margin-top: 0.5in;
 padding: 0.5em;
 background: rgba(255, 255, 0, 1);
 border: none;
-box-shadow: 0px 5px 4px 0px #444444;
+box-shadow: 0px 5px 4px 0px $fgMed;
 font-size: 1.5em;
 cursor: pointer;
 }

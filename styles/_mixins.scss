@@ -1,3 +1,9 @@
+$breakpointType: max-width;
+$breakpoint2: 640px;
+$breakpoint3: 792px;
+$breakpoint4: 1024px;
+$breakpoint5: 1360px;
+
 @mixin respond-to($val, $query) {
 	@media screen and ($val: $query) {
 		@content

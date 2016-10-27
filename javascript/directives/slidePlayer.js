@@ -67,7 +67,7 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 					$('.hiddenL').css("left", "-" + slideWidth + "px");
 					$('.hiddenR').css("left", slideWidth + "px");
 					//  Make slideshow 2/3 height of width
-					viewport.css("height", slideWidth*0.4 + "px");
+					viewport.css("height", slideWidth*0.35 + "px");
 				});
 				
 				
