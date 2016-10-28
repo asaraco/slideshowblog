@@ -1,8 +1,13 @@
-.maindiv {
-  margin-top: 1.4in; }
-  @media screen and (max-width: 792px) {
-    .maindiv {
-      margin-top: 0.85in; } }
+/*.maindiv {
+	margin-top: 1.4in;
+	@include respond-to($breakpointType, $breakpoint3) {
+		margin-top: 0.85in;
+	}
+}*/
+#headFiller {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent);
+  width: 100%;
+  height: 1.25in; }
 
 .heading {
   text-align: left;
@@ -11,12 +16,10 @@
   box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.1s, opacity 0.1s, color 0.1s;
   width: 100%;
-  /*height: 1.25in;*/
   top: 0;
   z-index: 10;
   position: fixed; }
   .heading:hover {
-    /*box-shadow: 0px 3px 1px 1px rgba(100, 100, 100, 0.4), 0px 4px 6px 5px rgba(0, 0, 0, 0.2);*/
     background: white; }
   .heading h1 {
     color: #333333;
@@ -34,7 +37,7 @@
   right: 0.25in;
   padding: 0.1in 0.1in 0 0;
   font-size: 0.5em;
-  color: #888888; }
+  color: #aaaaaa; }
   .poweredby img {
     height: 1.25em; }
   @media screen and (max-width: 640px) {
@@ -132,8 +135,8 @@
   cursor: pointer;
   position: absolute; }
   #hamburger-menu:hover {
-    -webkit-filter: drop-shadow(0px 0px 2px #888888);
-    filter: drop-shadow(0px 0px 2px #888888); }
+    -webkit-filter: drop-shadow(0px 0px 2px #aaaaaa);
+    filter: drop-shadow(0px 0px 2px #aaaaaa); }
   #hamburger-menu img {
     width: 100%;
     opacity: 0.5; }
@@ -142,11 +145,14 @@
   display: none; }
 
 .footer {
-  background: rgba(100, 100, 100, 0.5);
-  color: #eeeeee;
+  background: #666666;
+  color: #aaaaaa;
   /*margin: 0.5em 0 0 0;*/
   text-align: center;
   padding: 0.25in 0.25in 0.25in 0.25in; }
+  @media screen and (max-width: 792px) {
+    .footer {
+      font-size: 0.6em; } }
 
 #ucPopup {
   display: none;
@@ -159,7 +165,7 @@
   padding: 0.25in 0.25in 0.25in 0.25in;
   text-align: center;
   background: #ffff96;
-  box-shadow: 0px 0px 4px 0px #888888; }
+  box-shadow: 0px 0px 4px 0px #aaaaaa; }
   #ucPopup h1 {
     margin-bottom: 0.25in;
     font-size: 2em; }
@@ -169,7 +175,7 @@
   padding: 0.5em;
   background: yellow;
   border: none;
-  box-shadow: 0px 5px 4px 0px #888888;
+  box-shadow: 0px 5px 4px 0px #aaaaaa;
   font-size: 1.5em;
   cursor: pointer; }
 
@@ -180,7 +186,7 @@
 .tagsList {
   text-align: left;
   list-style: none;
-  border-top: 1px solid #888888;
+  border-top: 1px solid #aaaaaa;
   padding: 2% 0;
   margin: 0 5%; }
   .tagsList li {
@@ -457,8 +463,7 @@ article {
     transform: scale(1.1, 1.1); }
 
 .paper {
-  margin: auto;
-  margin-bottom: 1in;
+  margin: 1in auto;
   border: 1px solid #c8c8c8;
   width: 9in;
   height: 12in;

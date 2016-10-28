@@ -1,18 +1,24 @@
 @import '_mixins';
 
 $fgLight: #333333;
-$fgMed: #888888;
+$fgMed: #aaaaaa;
 $fgDark: #eeeeee;
 $bgLight: #ffffff;
-$bgMed: #999999;
+$bgMed: #666666;
 $bgDark: #333333; 
 
-.maindiv {
+/*.maindiv {
 	margin-top: 1.4in;
 	@include respond-to($breakpointType, $breakpoint3) {
 		margin-top: 0.85in;
 	}
-}
+}*/
+
+#headFiller {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+	width: 100%;
+	height: 1.25in;	//this gets overridden immediately by JS
+	}
 
 .heading {
 text-align: left;
@@ -21,12 +27,10 @@ background: $bgLight;
 box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.2);
 transition: box-shadow 0.1s, opacity 0.1s, color 0.1s;
 width: 100%;
-/*height: 1.25in;*/
 top: 0;
 z-index: 10;
 position: fixed;
 &:hover {
-/*box-shadow: 0px 3px 1px 1px rgba(100, 100, 100, 0.4), 0px 4px 6px 5px rgba(0, 0, 0, 0.2);*/
 background: rgba(255, 255, 255, 1.0);
 }
 h1 {
@@ -181,11 +185,14 @@ opacity: 0.5;
 display: none;
 }
 .footer {
-background: rgba(100, 100, 100, 0.5);
-color: $fgDark;
+background: $bgMed;
+color: $fgMed;
 /*margin: 0.5em 0 0 0;*/
 text-align: center;
 padding: 0.25in 0.25in 0.25in 0.25in;
+@include respond-to($breakpointType, $breakpoint3) {
+	font-size: 0.6em;
+	}
 }
 
 #ucPopup {
