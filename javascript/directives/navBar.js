@@ -11,9 +11,13 @@ angular.module('MyPortfolio').directive("navBar", function() {
 			var win = $(window);
 			var isHeadShort = false;
 				
-			// Make navigation links work for touch
-			$(".navdiv a").on("touchend", function(event) {
+			// Make navigation links work for touch; also scroll back up
+			$(".navdiv a, .slide a").on("touchend", function(event) {
 				window.location.href = $(this).attr("href");
+				win.scrollTop(0);
+			})
+			.on("click", function(event) {
+				win.scrollTop(0);
 			});
 			
 			// Set headFiller div to same size as heading
@@ -23,20 +27,22 @@ angular.module('MyPortfolio').directive("navBar", function() {
 			});
 			
 			// Fixed navigation bar that resizes to get rid of the header when scrolled down
-			var i = 0;
+			var scrollTop, prevScroll = 0;
 			win.scroll(function() {
-				var scrollTop = win.scrollTop();
+				scrollTop = win.scrollTop();
 				
-				//On scroll, if window scrollbar position is past header height, shorten header
-				if ( (scrollTop > headH) && !isHeadShort ) {
+				//On scroll, if scrolling down and past header height, shorten header
+				if ( (scrollTop > headH) && !isHeadShort && (scrollTop > prevScroll) ) {
 					isHeadShort = true;
 					head.animate({"top": "-=" + topheadheight}, "medium" );
-				//If header is already short and scrollbar position goes back up by the header,
-				//expand it again.
-				} else if ( (scrollTop < headH) && isHeadShort ) {
+				//If header is already short and scrollbar goes back up, expand it again.
+				//Use 2 * the header height so we don't catch the top of the page with its pants down.
+				} else if ( (scrollTop < (2*headH)) && isHeadShort && (scrollTop < prevScroll) ) {
 					isHeadShort = false;
 					head.animate({"top": "+=" + topheadheight}, "fast" );
 				}
+				
+				prevScroll = scrollTop;
 			});
 			
 			/*
