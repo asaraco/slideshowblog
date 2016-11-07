@@ -6,12 +6,22 @@ angular.module('MyPortfolio').config(function($routeProvider) {
 		
 		.when('/blog', {
 			templateUrl: "/views/blog.html",
-			controller: "SlideController"
+			controller: "SlideController",
+			resolve: {
+				mainslides: function(SlideServ) {
+					return SlideServ.getMain('/res/json/slides_main.json');
+				}
+			}
 		})
 		
 		.when('/vacations', {
 			templateUrl: "/views/vacations.html",
-			controller: "SlideControllerVacations"
+			controller: "SlideController",
+			resolve: {
+				mainslides: function(SlideServ) {
+					return SlideServ.getMain('/res/json/slides_vacation.json');
+				}
+			}
 		})
 		
 		.when('/resume', {
