@@ -88,7 +88,7 @@ Until then, certain aspects of the site may not work at all.<br>
 
 <nav-side></nav-side>
 
-<div ng-view class="maindiv"></div>
+<div ng-cloak ng-view class="maindiv"></div>
 
 <all-footer></all-footer>
 </body>
@@ -120,6 +120,9 @@ Until then, certain aspects of the site may not work at all.<br>
 <script type="text/javascript" src="/javascript/controllers/slideController.js"></script>
 <script type="text/javascript" src="/javascript/controllers/slideControllerVacations.js"></script>
 <script type="text/javascript" src="/javascript/controllers/libraryController.js"></script>
+
+<!--  Angular Services -->
+<script type="text/javascript" src="/javascript/services/slideserv.js"></script>
 
 <!-- Misc. jQuery Code -->
 <script type="text/javascript" src="/javascript/musicdb.jq.js"></script>

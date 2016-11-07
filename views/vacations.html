@@ -1,10 +1,9 @@
 <div class="subdiv">
 	<div id="slideViewPort">
 		
-		<div id="slideViewer" slide-player>
+		<div ng-cloak id="slideViewer" slide-player>
 		
-			<div id="slideshow">
-				
+			<div ng-cloak id="slideshow">				
 				<div ng-cloak ng-repeat="slide in slides" id="{{slide.sid}}" class="slide" style="background-image: url({{slide.simage}});">
 					<a href="{{slide.slink1}}"><p class="caption">{{slide.scap1}}</p></a>
 					<div class="slideGrad"></div>

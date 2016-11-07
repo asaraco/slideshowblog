@@ -3,8 +3,7 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 		restrict: "A",
 		link: function(scope, element) {
 			/** jQuery code **/
-			$(document).ready(function(){					
-				
+			$(document).ready(function(){
 				// Next/Prev button hover opacity
 				var navVisible = false;
 				$("#slideViewPort")
@@ -290,7 +289,6 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				
 				// Wrapping the whole initialization block in a setTimeOut() because it seems like things fire too soon otherwise
 				setTimeout(function() {
-					
 					// ***** INITIALIZATION *****
 					// **************************
 					//Start by setting all slide divs to be slideWidth right of the main view div

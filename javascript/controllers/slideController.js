@@ -1,10 +1,6 @@
-angular.module('MyPortfolio').controller('SlideController', [ '$scope', '$http', '$interval', function($scope, $http, $interval) {
+angular.module('MyPortfolio').controller('SlideController', [ '$scope', '$interval', 'mainslides', function($scope, $interval, mainslides) {
 	$('#pageTitle').text("Slideshow Blog");
 	
-	$scope.slides = [];
-	
-	$http.get('/res/json/slides_main.json').success(function(data) {
-		$scope.slides = data;
-	});
-	
+	//receive slide data from "SlideServ" factory, by way of route resolve
+	$scope.slides = mainslides.data;
 }]);
