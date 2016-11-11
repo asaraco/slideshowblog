@@ -1,3 +1,3 @@
-angular.module('MyPortfolio', ['ngAnimate', 'ngRoute']).config(function() {
+angular.module('MyPortfolio', ['ngAnimate', 'ngRoute', 'ngSanitize']).config(function() {
 	//console.log("Config!");
 });

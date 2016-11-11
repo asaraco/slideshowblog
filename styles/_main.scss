@@ -108,6 +108,10 @@ margin: 0;
 			transform: scale(1.1,1.1);
 			}
 		}
+		#aHamburger {
+			padding: 0.5em 0;
+			cursor: pointer;
+			}
 	}
 	@include respond-to($breakpointType, $breakpoint3) {
 		margin: 4px 0 2px 0;
@@ -185,7 +189,7 @@ opacity: 0.5;
 display: none;
 }
 .footer {
-background: $bgMed;
+background-color: $bgMed;
 color: $fgMed;
 /*margin: 0.5em 0 0 0;*/
 text-align: center;
@@ -222,3 +226,42 @@ box-shadow: 0px 5px 4px 0px $fgMed;
 font-size: 1.5em;
 cursor: pointer;
 }
+
+#loginBox {
+	display: none;
+	background-color: $bgDark;
+	color: $fgDark;
+	font-size: 0.75em;
+	padding-left: 2.5em;
+	.logForm {
+		input {
+			border-radius: 5px;
+			margin: 1em;
+			padding: 0.1em 0.4em;
+			}
+		label {
+			min-width: 10em;
+			text-align: center;
+			margin: 1em;
+			}
+		.bLog {
+			background-color: $fgDark;
+			color: $bgDark;
+			font-weight: bold;
+			border: none;
+			border-radius: 5px;
+			padding: 0.3em 0.8em;
+			cursor: pointer;
+			&:hover {
+				color: black;
+				}
+			}
+		#loginAlert {
+			color: #aaffaa;
+			}
+		}
+	}
+
+#logoutForm {
+	display: none;
+	}

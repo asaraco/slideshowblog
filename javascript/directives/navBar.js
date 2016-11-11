@@ -1,4 +1,4 @@
-angular.module('MyPortfolio').directive("navBar", function() {
+angular.module('MyPortfolio').directive("navBar", ['BlogServ', function(BlogServ) {
 	return {
 		restrict: "E",
 		templateUrl: "/views/templates/nav-bar.html",
@@ -43,6 +43,32 @@ angular.module('MyPortfolio').directive("navBar", function() {
 				}
 				
 				prevScroll = scrollTop;
+			});
+			
+			// Hamburger & Login button
+			$('#aHamburger').on('click', function() {
+				$('#loginBox').slideToggle();
+				$('#loginForm').on('submit', function(e) {
+					e.preventDefault();
+					var rPromise = BlogServ.getUser('http://localhost:3000/login', { "username": $('#username').val(), "password": $('#password').val() });
+					rPromise.done(function(result) {
+						scope.username = result;
+						console.log(scope.username);
+						if (scope.username) {
+							$('#loginForm').hide();
+							$('#logoutForm').fadeIn();
+							$('blog-crud').slideDown();
+						} else {
+							$('#loginAlert').text("Username/password combination not found");
+						}
+					})
+				});
+				$('#logoutForm').on('submit', function(e) {
+					e.preventDefault();
+					scope.username = null;
+					$('#logoutForm').hide();
+					$('#loginForm').fadeIn();
+				});
 			});
 			
 			/*
@@ -109,4 +135,4 @@ angular.module('MyPortfolio').directive("navBar", function() {
 			});*/
 		}
 	};
-});
+}]);

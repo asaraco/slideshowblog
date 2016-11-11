@@ -1,0 +1,23 @@
+<div class="dCrud">
+	<div id="bcExp">
+		<p>This is a beta version of the blog editing interface. Currently you have to manually type in a "KEY" for the review you want to create or edit. Soon this will be replaced with an automatically populating drop-down list.</p>
+		<p>Reviews that currently exist are:</p>
+		<ul><li>mm_changes - only available for the "admin" user</li>
+		<li>mm_vitals - only available for the "test" user</li></ul>
+		<p>A lot more work needs to be done for the user security (and making sure 2 users don't create a review with the same key). I really just started working on this yesterday! But have fun!</p>
+		<p>When you're done, your review should be available for viewing at the URL http://asaraco.net/reviews/REVIEWKEY</p> 
+	</div>
+	<div id="blogAlert"><span></span></div><br>
+	<form id="crudForm" action='/reviews' method='POST'>
+		<label>KEY</label><input id="taKey" name="key" placeholder="Review unique key"></input><button id="taLoad">LOAD</button><br>
+		<label>Artist</label><input id="taArt" name="artist" placeholder="Artist Name"></input><br>
+		<label>Album Title</label><input id="taAlb" name="album" placeholder="Album Title"></input><br>
+		<label>Year</label><input id="taYear" name="year" placeholder="Year"></input><br>
+		<label>Record Label</label><input id="taLab" name="label" placeholder="Record Label"></input><br>
+		<label>Review Author</label><input id="taAuth" name="author" placeholder="Review Author"></input><br>
+		<label>Review Text</label><textarea id="taTxt" name="text" placeholder="Enter review text here..."></textarea><br>
+		<input type="submit" value="SUBMIT!" id="mongosub">
+	</form>
+	<a href="#/reviews" id="crudPreview" target="_blank">Preview</a>
+	<button id="crudClose">X</button>
+</div>

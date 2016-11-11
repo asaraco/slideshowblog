@@ -83,6 +83,9 @@
       .navlist li a:active {
         color: rgba(180, 200, 180, 0.8);
         transform: scale(1.1, 1.1); }
+    .navlist li #aHamburger {
+      padding: 0.5em 0;
+      cursor: pointer; }
   @media screen and (max-width: 792px) {
     .navlist {
       margin: 4px 0 2px 0;
@@ -145,7 +148,7 @@
   display: none; }
 
 .footer {
-  background: #666666;
+  background-color: #666666;
   color: #aaaaaa;
   /*margin: 0.5em 0 0 0;*/
   text-align: center;
@@ -178,6 +181,36 @@
   box-shadow: 0px 5px 4px 0px #aaaaaa;
   font-size: 1.5em;
   cursor: pointer; }
+
+#loginBox {
+  display: none;
+  background-color: #333333;
+  color: #eeeeee;
+  font-size: 0.75em;
+  padding-left: 2.5em; }
+  #loginBox .logForm input {
+    border-radius: 5px;
+    margin: 1em;
+    padding: 0.1em 0.4em; }
+  #loginBox .logForm label {
+    min-width: 10em;
+    text-align: center;
+    margin: 1em; }
+  #loginBox .logForm .bLog {
+    background-color: #eeeeee;
+    color: #333333;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3em 0.8em;
+    cursor: pointer; }
+    #loginBox .logForm .bLog:hover {
+      color: black; }
+  #loginBox .logForm #loginAlert {
+    color: #aaffaa; }
+
+#logoutForm {
+  display: none; }
 
 .subdiv {
   display: inline-block;
@@ -461,6 +494,60 @@ article {
   float: right; }
   .btnNextSlide svg:hover {
     transform: scale(1.1, 1.1); }
+
+blog-crud {
+  display: none;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 75%;
+  min-height: 75%;
+  background-color: rgba(17, 17, 17, 0.9);
+  color: #eeeeee; }
+
+#bcExp {
+  color: #eeeeee;
+  font-size: 0.75em;
+  padding: 1em; }
+
+.dCrud label {
+  font-size: 0.8em;
+  display: inline-block;
+  min-width: 12em;
+  text-align: right;
+  vertical-align: top;
+  padding-right: 1em; }
+
+#blogAlert {
+  display: inline-block;
+  background-color: #aaaaaa;
+  color: #000000;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  margin: 0.5em;
+  min-height: 2.25em;
+  width: 98%;
+  visibility: hidden; }
+  #blogAlert.error {
+    background-color: #ffaaaa;
+    color: #330000; }
+  #blogAlert.ok {
+    background-color: #aaffaa;
+    color: #003300; }
+
+#taTxt {
+  width: 80%;
+  height: 50%; }
+
+#crudClose {
+  border: none;
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+  font-weight: bold;
+  background: none;
+  color: white;
+  cursor: pointer; }
 
 .paper {
   margin: 1in auto;

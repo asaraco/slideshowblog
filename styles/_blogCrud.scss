@@ -1,0 +1,70 @@
+$baRegBG: #aaaaaa;
+$baRegFG: #000000;
+$baErrBG: #ffaaaa;
+$baErrFG: #330000;
+$baOkBG: #aaffaa;
+$baOkFG: #003300;
+
+blog-crud {
+	display: none;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 75%;
+	min-height: 75%;
+	background-color: rgba(#111111, 0.9);
+	color: $fgDark;
+	}
+
+#bcExp {
+	color: $fgDark;
+	font-size: 0.75em;
+	padding: 1em;
+	}
+	
+.dCrud {
+	label {
+		font-size: 0.8em;
+		display: inline-block;
+		min-width: 12em;
+		text-align: right;
+		vertical-align: top;
+		padding-right: 1em;
+		}
+	}
+
+#blogAlert {
+	display: inline-block;
+	background-color: $baRegBG;
+	color: $baRegFG;
+	border-radius: 1em;
+	padding: 0.5em 1em;
+	margin: 0.5em;
+	min-height: 2.25em;
+	width: 98%;
+	visibility: hidden;
+	&.error {
+		background-color: $baErrBG;
+		color: $baErrFG; 
+		}
+	&.ok {
+		background-color: $baOkBG;
+		color: $baOkFG;
+		}
+	}
+
+#taTxt {
+	width: 80%;
+	height: 50%;
+	}
+
+#crudClose {
+	border: none;
+	position: absolute;
+	right: 2em;
+	bottom: 2em;
+	font-weight: bold;
+	background: none;
+	color: white;
+	cursor: pointer;
+	}
