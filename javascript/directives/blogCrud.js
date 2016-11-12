@@ -6,7 +6,7 @@ angular.module('MyPortfolio').directive("blogCrud", function() {
 			//Submitting the form (either add or update)
 			$('#crudForm').on('submit', function(e) {
 				e.preventDefault();
-				$.ajax('http://localhost:3000/reviews', {
+				$.ajax('http://asaraco.net:3000/reviews', {
 					type: 'POST',
 					contentType: 'application/json',
 					dataType: 'json',
@@ -22,7 +22,7 @@ angular.module('MyPortfolio').directive("blogCrud", function() {
 			//Loading the values based on the key field
 			$('#taLoad').on('click', function(e) {
 				e.preventDefault();
-				$.ajax('http://localhost:3000/reviews2', {
+				$.ajax('http://asaraco.net:3000/reviews2', {
 					type: 'GET',
 					dataType: 'json',
 					data: { "key": $('#taKey').val(), "username": scope.username },

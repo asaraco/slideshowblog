@@ -50,7 +50,7 @@ angular.module('MyPortfolio').directive("navBar", ['BlogServ', function(BlogServ
 				$('#loginBox').slideToggle();
 				$('#loginForm').on('submit', function(e) {
 					e.preventDefault();
-					var rPromise = BlogServ.getUser('http://localhost:3000/login', { "username": $('#username').val(), "password": $('#password').val() });
+					var rPromise = BlogServ.getUser('http://asaraco.net:3000/login', { "username": $('#username').val(), "password": $('#password').val() });
 					rPromise.done(function(result) {
 						scope.username = result;
 						console.log(scope.username);
