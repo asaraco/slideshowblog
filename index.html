@@ -15,6 +15,17 @@
 <!--  SVG Definitions -->
 <svg id="svgDefs" xmlns="http://www.w3.org/2000/svg" version="v1.1">
 	<!-- Navigation bar icons -->
+	<symbol id="navHamburger">
+		<g transform="translate(5,8)">
+			<line class="navLine" x1=5 y1=10 x2=45 y2=10 />
+			<line class="navLine" x1=5 y1=20 x2=45 y2=20 />
+			<line class="navLine" x1=5 y1=30 x2=45 y2=30 />
+			<line class="navLine" x1=5 y1=40 x2=45 y2=40 />
+		</g>
+	</symbol>
+	<symbol id="navDownArrow">
+		<polyline class="navLine" points="5,25 25,50 45,25" fill="none" />
+	</symbol>
 	<symbol id="navHome">
 		<g transform="translate(5,8)">
 			<rect class="navRect" height="50" width="50" rx="5" />
@@ -67,13 +78,6 @@
 </head>
 
 <body>
-<div id="ucPopup">
-<h1>UNDER CONSTRUCTION!</h1>
-Welcome to Aaron Saraco's web portfolio!<br>
-I'm still experimenting with re-structuring this site, refactoring my code to conform to best practices, stabilizing the web server, and getting it to work on all devices.<br>
-Until then, certain aspects of the site may not work at all.<br>
-<button id="ucPopupClose">Gotcha</button>
-</div>
 
 <div id="headFiller"></div>
 <div class="heading" ng-cloak>
@@ -87,6 +91,8 @@ Until then, certain aspects of the site may not work at all.<br>
 </div>
 
 <nav-side></nav-side>
+
+<blog-crud></blog-crud>
 
 <div ng-cloak ng-view class="maindiv"></div>
 
@@ -102,6 +108,7 @@ Until then, certain aspects of the site may not work at all.<br>
 <script type="text/javascript" src="/javascript/include/angular.min.js"></script>
 <script type="text/javascript" src="/javascript/include/angular-animate.js"></script>
 <script type="text/javascript" src="/javascript/include/angular-route.js"></script>
+<script type="text/javascript" src="/javascript/include/angular-sanitize.min.js"></script>
 
 <!-- Angular Main App -->
 <script type="text/javascript" src="/javascript/app.js"></script>
@@ -115,14 +122,17 @@ Until then, certain aspects of the site may not work at all.<br>
 <script type="text/javascript" src="/javascript/directives/albumCard.js"></script>
 <script type="text/javascript" src="/javascript/directives/slidePlayer.js"></script>
 <script type="text/javascript" src="/javascript/directives/libraryDirective.js"></script>
+<script type="text/javascript" src="javascript/directives/blogCrud.js"></script>
 
 <!-- Angular Controllers -->
 <script type="text/javascript" src="/javascript/controllers/slideController.js"></script>
 <script type="text/javascript" src="/javascript/controllers/slideControllerVacations.js"></script>
 <script type="text/javascript" src="/javascript/controllers/libraryController.js"></script>
+<script type="text/javascript" src="/javascript/controllers/reviewController.js"></script>
 
 <!--  Angular Services -->
 <script type="text/javascript" src="/javascript/services/slideserv.js"></script>
+<script type="text/javascript" src="/javascript/services/blogserv.js"></script>
 
 <!-- Misc. jQuery Code -->
 <script type="text/javascript" src="/javascript/musicdb.jq.js"></script>

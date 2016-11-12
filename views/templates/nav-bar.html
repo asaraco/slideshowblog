@@ -1,6 +1,10 @@
 <div class="navdiv inner">
-		<button id="hamburger-menu"><img src="/res/img/buttons/hamburger_100.png"></button>
 	<ul class="navlist">
+		<li><a id="aHamburger">
+			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
+					xmlns:xlink="http://www.w3.org/1999/xlink">
+					<use xlink:href="#navDownArrow"/>
+			</svg></a></li>
 		<li><a ng-href="#/blog">
 			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
 					xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -25,4 +29,16 @@
 		<li><a href="alternate.html">ALTERNATE STYLE</a></li>
 		<li><a href="Canvas/index.html">CANVAS</a></li-->
 	</ul>
+	<div id="loginBox">
+		<form id="loginForm" class="logForm">
+			<label>USERNAME</label><input id="username" required autofocus></input>
+			<label>PASSWORD</label><input type="password" id="password" required></input>
+			<input type="submit" id="bLogin" class="bLog" value="LOGIN"/>
+			<span id="loginAlert"></span>
+		</form>
+		<form id="logoutForm" class="logForm">
+			<label id="loginMessage">Logged in as {{username}}</label>
+			<input type="submit" id="bLogout" class="bLog" value="LOGOUT"/>
+		</form>
+	</div>
 </div>

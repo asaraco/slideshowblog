@@ -39,7 +39,13 @@ angular.module('MyPortfolio').config(function($routeProvider) {
 		})
 		
 		.when('/reviews/:name', {
-			templateUrl: function(params) { return "/views/reviews/"+params.name+".html" }
+			templateUrl: "/views/templates/review_album.html",
+			controller: "ReviewController",
+			resolve: {
+				rdata: function($route, BlogServ) {
+					return BlogServ.get('http://localhost:3000/reviews2', { "key": $route.current.params.name });
+				}
+			}
 		})
 		
 		.otherwise( {redirectTo: '/' } );
