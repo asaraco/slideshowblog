@@ -12,20 +12,9 @@
 				<h4>by {{blogpost.author}}</h4>
 				<ul class="tagsList">
 					<!-- li><p class="tagsHead">TAGS:</p></li-->
-					<li class="tag">Music</li>
-					<li class="tag">Review</li>
-					<li class="tag tagGenre">Rock</li>
-					<li class="tag tagGenre">Electronic</li>
-					<li class="tag tagGenre">Pop</li>
-					<li class="tag">Remix</li>
-					<li class="tag tagArtist">Mutemath</li>
-					<li class="tag tagArtist">Disero</li>
-					<li class="tag tagArtist">Hasta</li>
-					<li class="tag tagArtist">Yacht Club</li>
-					<li class="tag tagArtist">Flint Eastwood</li>
-					<li class="tag tagArtist">Imagined Herbal Flows</li>
-					<li class="tag tagArtist">JT Daly</li>
-					<li class="tag tagArtist">Kasbo</li>
+					<li class="tag" ng-repeat="tag in blogpost.tags.t">{{tag}}</li>
+					<li class="tag tagGenre" ng-repeat="tag in blogpost.tags.tGen">{{tag}}</li>
+					<li class="tag tagArtist" ng-repeat="tag in blogpost.tags.tArt">{{tag}}</li>
 				</ul>
 			</div>
 		</section>

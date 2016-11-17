@@ -12,7 +12,7 @@ angular.module('MyPortfolio').directive("navBar", ['BlogServ', function(BlogServ
 			var isHeadShort = false;
 				
 			// Make navigation links work for touch; also scroll back up
-			$(".navdiv a, .slide a").on("touchend", function(event) {
+			$(".navdiv a:not('#aDropdown'), .slide a").on("touchend", function(event) {
 				window.location.href = $(this).attr("href");
 				win.scrollTop(0);
 			})
@@ -46,11 +46,12 @@ angular.module('MyPortfolio').directive("navBar", ['BlogServ', function(BlogServ
 			});
 			
 			// Hamburger & Login button
-			$('#aHamburger').on('click', function() {
+			$('#aDropdown').on('click', function(ev) {
+				ev.preventDefault();
 				$('#loginBox').slideToggle();
 				$('#loginForm').on('submit', function(e) {
 					e.preventDefault();
-					var rPromise = BlogServ.getUser('http://asaraco.net:3000/login', { "username": $('#username').val(), "password": $('#password').val() });
+					var rPromise = BlogServ.getUser('http://' + location.host + ':3000/login', { "username": $('#username').val(), "password": $('#password').val() });
 					rPromise.done(function(result) {
 						scope.username = result;
 						console.log(scope.username);
@@ -58,6 +59,31 @@ angular.module('MyPortfolio').directive("navBar", ['BlogServ', function(BlogServ
 							$('#loginForm').hide();
 							$('#logoutForm').fadeIn();
 							$('blog-crud').slideDown();
+							// *MOVE THIS CODE SOMEWHERE ELSE LATER -- this is messy*
+							//Initializing the key selection dropdown
+							var dQ = { "username": scope.username };
+							//var dP = { "key": true };
+							var dP = { };
+							var dataobj = { dQuery: dQ, dProjection: dP };
+							console.log(dataobj);
+							var allKeys;
+							$.ajax('http://' + location.host + ':3000/reviews2', {
+								type: 'GET',
+								dataType: 'json',
+								data: { dQuery: dQ, dProjection: dP },
+								success: function(data) {
+									if (data[0]) {
+										//If data exists, bind to a scope object, and $apply so the dropdown is updated
+										scope.reviewsByUser = data;
+										scope.reviewSelected = scope.reviewsByUser[0];
+										scope.$apply();
+									} else {
+										$('#blogAlert').removeClass('ok').addClass('error').fadeIn().css("visibility", "visible");
+										$('#blogAlert span').text("No blog entries found.");
+									}
+								}
+							});
+							// *****
 						} else {
 							$('#loginAlert').text("Username/password combination not found");
 						}

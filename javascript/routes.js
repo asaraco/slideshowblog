@@ -43,7 +43,9 @@ angular.module('MyPortfolio').config(function($routeProvider) {
 			controller: "ReviewController",
 			resolve: {
 				rdata: function($route, BlogServ) {
-					return BlogServ.get('http://asaraco.net:3000/reviews2', { "key": $route.current.params.name });
+					var dQ = { key: $route.current.params.name };
+					var dP = {  };
+					return BlogServ.get('http://' + location.host + ':3000/reviews2', dQ, dP);
 				}
 			}
 		})
