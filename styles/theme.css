@@ -538,19 +538,20 @@ blog-crud {
   min-height: 75%;
   background-color: rgba(17, 17, 17, 0.9);
   color: #eeeeee; }
+  blog-crud label {
+    font-size: 0.8em;
+    display: inline-block;
+    min-width: 12em;
+    text-align: right;
+    vertical-align: top;
+    padding-right: 1em; }
+  blog-crud input, blog-crud select {
+    min-width: 10em; }
 
 #bcExp {
   color: #eeeeee;
   font-size: 0.75em;
   padding: 1em; }
-
-.dCrud label {
-  font-size: 0.8em;
-  display: inline-block;
-  min-width: 12em;
-  text-align: right;
-  vertical-align: top;
-  padding-right: 1em; }
 
 #blogAlert {
   display: inline-block;
@@ -571,7 +572,10 @@ blog-crud {
 
 #taTxt {
   width: 80%;
-  height: 50%; }
+  height: 250px; }
+  @media screen and (max-width: 640px) {
+    #taTxt {
+      width: 100%; } }
 
 #crudClose {
   border: none;
@@ -583,6 +587,32 @@ blog-crud {
   color: white;
   cursor: pointer; }
 
+#crudPreview {
+  color: white; }
+
+#cfSection3 {
+  position: absolute;
+  top: 20%;
+  right: 10%; }
+  @media screen and (max-width: 640px) {
+    #cfSection3 {
+      position: relative;
+      top: auto;
+      right: auto; } }
+
+@media screen and (max-width: 640px) {
+  blog-crud {
+    width: 100%;
+    height: 100%; }
+    blog-crud div {
+      display: block;
+      width: 100%; }
+    blog-crud label {
+      text-align: left; }
+    blog-crud textarea {
+      width: 100%; }
+    blog-crud #bcExp {
+      display: none; } }
 .paper {
   margin: 1in auto;
   border: 1px solid #c8c8c8;

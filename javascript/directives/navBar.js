@@ -75,7 +75,7 @@ angular.module('MyPortfolio').directive("navBar", ['BlogServ', function(BlogServ
 									if (data[0]) {
 										//If data exists, bind to a scope object, and $apply so the dropdown is updated
 										scope.reviewsByUser = data;
-										scope.reviewSelected = scope.reviewsByUser[0];
+										//scope.reviewSelected = scope.reviewsByUser[0];
 										scope.$apply();
 									} else {
 										$('#blogAlert').removeClass('ok').addClass('error').fadeIn().css("visibility", "visible");

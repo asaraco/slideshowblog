@@ -10,18 +10,12 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 				var tagArray = $('#taTagsGeneral').val().split(',');
 				var tagArrayG = $('#taTagsGenre').val().split(',');
 				var tagArrayA = $('#taTagsArtist').val().split(',');
-				console.log(tagArray);
-				console.log(tagArrayG);
-				console.log(tagArrayA);
 				var allTags = {t: tagArray, tGen: tagArrayG, tArt: tagArrayA};
-				console.log(allTags);
-				var testData = JSON.stringify({ "username": scope.username, "key": $('#selKey').val(), "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "tags": allTags });
-				console.log(testData);
 				$.ajax('http://' + location.host + ':3000/reviews', {
 					type: 'POST',
 					contentType: 'application/json',
 					dataType: 'json',
-					data: JSON.stringify({ "username": scope.username, "key": $('#selKey').val(), "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "tags": allTags  }),
+					data: JSON.stringify({ "username": scope.username, "key": $('#selKey').val(), "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "image": $('#inpImg').val(), "tags": allTags  }),
 					success: function(response) {
 						console.log("Response!");
 						console.log(this.data);
@@ -31,19 +25,24 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 			});
 			
 			//Loading the values based on the key field
-			$('#btnLoad').on('click', function(e) {
-				e.preventDefault();
-				$('#inpArt').val(scope.reviewSelected.artist);
-				$('#inpAlb').val(scope.reviewSelected.album);
-				$('#inpYear').val(scope.reviewSelected.year);
-				$('#inpLab').val(scope.reviewSelected.label);
-				$('#inpArt').val(scope.reviewSelected.artist);
-				$('#inpAuth').val(scope.reviewSelected.author);
-				$('#taTxt').val(scope.reviewSelected.text);
+			//$('#btnLoad').on('click', function(e) {
+			scope.loadBlog = function() {
+				var rs = scope.reviewSelected;
+				$('#inpArt').val(rs.artist);
+				$('#inpAlb').val(rs.album);
+				$('#inpImg').val(rs.image);
+				$('#inpYear').val(rs.year);
+				$('#inpLab').val(rs.label);
+				$('#inpArt').val(rs.artist);
+				$('#inpAuth').val(rs.author);
+				$('#taTxt').val(rs.text);
 				
-				$('#taTagsGeneral').val(scope.reviewSelected.tags.t);
-				$('#taTagsGenre').val(scope.reviewSelected.tags.tGen);
-				$('#taTagsArtist').val(scope.reviewSelected.tags.tArt);
+				if (rs.tags) {
+					$('#taTagsGeneral').val(rs.tags.t);
+					$('#taTagsGenre').val(rs.tags.tGen);
+					$('#taTagsArtist').val(rs.tags.tArt);
+				}
+				
 				/*** DELETE THIS CODE LATER... BUT FOR NOW LEAVE IT, YOU PUT A LOT OF WORK INTO IT **
 				var dQ = { "key": $('#taKey').val(), "username": scope.username };
 				var dP = {};
@@ -73,19 +72,17 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 					}
 				});
 				*/
-			});
+			}
 			
 			//Preview
 			$('#crudPreview').on('click', function(e) {
-				$(this).attr("href", "#/reviews/" + $('#taKey').val());
+				$(this).attr("href", "#/reviews/" + $('#selKey').val());
 			})
 			
 			//Close
 			$('#crudClose').on('click', function(e) {
 				$('blog-crud').slideUp();
 				$('#crudForm').trigger("reset");
-				//Remove appended keys from drop-down datalist
-				$('#taKeys').empty();
 			});
 		}
 	}
