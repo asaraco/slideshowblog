@@ -5,15 +5,14 @@ angular.module('MyPortfolio').directive("editBar", ['BlogServ', function(BlogSer
 		link: function(scope, element) {
 			var win = $(window);
 			var artstat = $('article');
+			/*
 			// Fade in edit menu after scrolling
 			win.scroll(function() {
-				$('#editBar').fadeIn();
-				/*
 				win.on('touchend', function() {
 					$('#editBar').fadeIn();
 				});
-				*/
 			});
+			*/
 			
 			$('#editMain').on('click', function(e) {
 				e.preventDefault();
@@ -22,25 +21,28 @@ angular.module('MyPortfolio').directive("editBar", ['BlogServ', function(BlogSer
 				$('.articleEdit').css('height', $('article').height()).show();
 				$('article').hide();
 				//switch edit button with save/upload button
-				$(this).hide();
-				$('#editUpdate').show();
+				$(this).fadeOut();
+				$('#editUpdate').fadeIn();
 			});
 			
 			$('#editUpdate').on('click', function(e) {
 				e.preventDefault();
 				//send Post request
-				console.log(scope.blogpost);
 				var postUrl = 'http://' + location.host + ':3000/reviews';
 				var postData = JSON.stringify({ "username": scope.blogpost.username, "key": scope.blogpost.key, "artist": $('#ioArt').val(), "album": $('#ioAlb').val(), "year": parseInt($('#ioYear').val()), "label": $('#ioLab').val(), "text": $('#ioTxt').val() });
-				console.log("Post Data");
-				console.log(postData);
-				BlogServ.update(postUrl, postData);
-				//revert to View mode
-				$('#editModeForm input').attr('disabled', '');
-				$('.articleEdit').hide();
-				$('article').show();
-				$(this).hide();
-				$('#editMain').show();
+				var upPromise = BlogServ.update(postUrl, postData);
+				/***** TODO: verify what would happen if the update is NOT successful *****/
+				if (upPromise) {
+					//revert to View mode
+					$('#editModeForm input').attr('disabled', '');
+					$('.articleEdit').hide();
+					$('article').show();
+					$(this).fadeOut();
+					$('#editMain').fadeIn();
+				} else {
+					alert("Update unsuccessful.");
+				}
+				
 			});
 			
 			// Sidebar popup menu visibility/animation

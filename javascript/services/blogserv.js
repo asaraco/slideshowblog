@@ -24,13 +24,13 @@ angular.module("MyPortfolio").factory("BlogServ", ["$http", function BlogServFac
 		},
 		//Update specified blog entry
 		update: function(pUrl, pData) {
-			$.ajax(pUrl, {
+			return $.ajax(pUrl, {
 				type: 'POST',
 				contentType: 'application/json',
 				dataType: 'json',
 				data: pData,
 				success: function(response) {
-					console.log(response);
+					//console.log(response);
 				}
 			});
 		}

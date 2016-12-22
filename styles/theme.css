@@ -216,12 +216,14 @@ cursor: pointer;
   position: fixed;
   width: 5%;
   right: 1%;
-  bottom: 1%; }
+  bottom: 10%; }
   #editBar ul {
     list-style-type: none;
     padding: 0; }
     #editBar ul li {
-      display: inline-block; }
+      display: inline-block;
+      position: absolute;
+      top: 0; }
       #editBar ul li svg {
         width: 100%;
         transition: all 0.75s; }
@@ -229,12 +231,6 @@ cursor: pointer;
           -webkit-filter: drop-shadow(0px 0px 4px #333333);
           filter: drop-shadow(0px 0px 4px #333333);
           transition: all 0.25s; }
-
-#edit-main {
-  background: none; }
-  #edit-main:hover {
-    -webkit-filter: drop-shadow(0px 0px 2px #aaaaaa);
-    filter: drop-shadow(0px 0px 2px #aaaaaa); }
 
 #editUpdate {
   display: none; }
