@@ -97,17 +97,20 @@ angular.module('MyPortfolio').directive("navBar", ['BlogServ', function(BlogServ
 				});
 			});
 			
-			/*
+			
 			// Fade in hamburger menu after scrolling
-			//win.scroll(function() {
+			win.scroll(function() {
+				$('#edit-main').fadeIn();
+				/*
 				win.on('touchend', function() {
-					$('#hamburger-menu').fadeIn();
+					$('#edit-main').fadeIn();
 				});
-			//});
+				*/
+			});
 			
 			// Sidebar popup menu visibility/animation
 			var menuOpen = false;
-			
+			/*
 			$('#hamburger-menu').on('touchend', function() {
 				if (!menuOpen) {
 					$('#sidebar').fadeIn();

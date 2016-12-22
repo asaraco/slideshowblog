@@ -22,6 +22,17 @@ angular.module("MyPortfolio").factory("BlogServ", ["$http", function BlogServFac
 			});
 			return promise;
 		},
-		//Query to retrieve all keys from a collection
+		//Update specified blog entry
+		update: function(pUrl, pData) {
+			$.ajax(pUrl, {
+				type: 'POST',
+				contentType: 'application/json',
+				dataType: 'json',
+				data: pData,
+				success: function(response) {
+					console.log(response);
+				}
+			});
+		}
 	}
 }]);

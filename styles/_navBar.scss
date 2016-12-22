@@ -1,0 +1,144 @@
+@import '_mixins';
+
+.navdiv {
+background: $bgDark;
+display: inline-block;
+position: relative;
+font-size: 0.75em;
+width: 100%;
+}
+
+.inner {
+padding: 0;
+margin: 0;
+}
+
+.navlist {
+list-style-type: none;
+margin: 0;
+	li {
+		display: inline;
+		a {
+			display: inline-block;
+			margin: 0;
+			padding: 0.5em 1em 0.5em 0;
+			text-decoration: none;
+			transition: all 0.75s;
+			transition-timing-function: ease-in-out;
+			opacity: 1.0;
+			span {
+				position: relative;
+				margin: 0 auto;
+				bottom: 7px;
+			}
+			&:link {
+			color: $fgDark;
+			}
+			&:visited {
+			color: $fgDark;
+			}
+			&:hover {
+			color: $fgLight;
+			background-color: rgba(220, 220, 255, 0.7);
+			transition: color 0.1s, background-color 0.25s;
+			}
+			&:active {
+			color: rgba(180, 200, 180, 0.8);
+			transform: scale(1.1,1.1);
+			}
+		}
+		#aHamburger {
+			padding: 0.5em 0;
+			cursor: pointer;
+			}
+	}
+	@include respond-to($breakpointType, $breakpoint3) {
+		margin: 4px 0 2px 0;
+		padding: 0 0 0 0.8em;
+		li a {
+			padding: 0;
+			span {
+				display: none;
+				}
+			}
+			.svgNavHome {
+				margin: 0;
+				}
+	}
+}
+
+.svgNavHome {
+	//display: none;
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	margin: 0 0.5em; 
+	@include respond-to($breakpointType, $breakpoint2) {
+		padding: 0;
+	}
+}
+
+#loginBox {
+	display: none;
+	background-color: $bgDark;
+	color: $fgDark;
+	font-size: 0.5em;
+	padding-left: 6%;
+	div {
+		display: inline-block;
+		}
+	.logForm {
+		input, label {
+			min-width: 10em;
+			margin: 1em;
+			}
+		input {
+			border-radius: 5px;
+			padding: 0.1em 0.4em;
+			}
+		label {
+			text-align: center;
+			}
+		.bLog {
+			background-color: $fgDark;
+			color: $bgDark;
+			font-weight: bold;
+			border: none;
+			border-radius: 5px;
+			padding: 0.3em 0.8em;
+			cursor: pointer;
+			transition: all 0.5s;
+			}
+		#bLogin {
+			&:hover, &:focus {
+				color: black;
+				background-color: #aaffaa;
+				}
+			}
+		#bLogout {
+			&:hover, &:focus {
+				color: black;
+				background-color: #ffaaaa;
+				}
+			}
+		#loginAlert {
+			color: #aaffaa;
+			}
+		}
+		@include respond-to($breakpointType, $breakpoint3) {
+			padding: 0;
+			font-size: 0.4em;
+			div {
+				display: block;
+				}
+			.logForm {
+				input, label {
+					margin: 1%;
+				}
+			}
+		}
+	}
+
+#logoutForm {
+	display: none;
+	}

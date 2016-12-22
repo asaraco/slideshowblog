@@ -69,6 +69,21 @@ figure {
 	figcaption {
 		font-family: Verdana, Arial, sans-serif;
 		font-variant: small-caps;
+		margin: 0.2em 0.2em 0 0.2em;
+		text-align: center;
+		input {
+			font-family: inherit;
+			font-variant: inherit;
+			color: inherit;
+			background-color: rgba(0,0,0,0);
+			display: inline-block;
+			max-width: 45%;
+			text-align: center;
+			&:focus {
+				background-color: #ffffdd;
+				color: black;
+				}
+			}
 		ul {
 			margin: 0;
 			padding: 0;
@@ -123,6 +138,10 @@ figure {
 	margin: 0;
 	background: $bgLight - #111111;
 	box-shadow: 0px -1px 5px 1px rgba(0, 0, 0, 0.5) inset;
+	input {
+		border: none;
+		border-bottom: 2px solid black;
+		}
 	@include respond-to($breakpointType, $breakpoint2) {
 		display: block;
 		width: 100%;
@@ -155,6 +174,15 @@ figure {
 			margin: 0;
 			font-family: Verdana, Arial, sans-serif;
 			font-size: 2em;
+			max-width: 45%;
+			&:focus {
+				background: linear-gradient(0deg, rgba(255,255,100,0.75), rgba(0,0,0,0))
+				}
+			&[disabled] {
+				border: none;
+				background: none;
+				color: $fgLight;
+				}
 			}
 		.rhArtist {
 			font-weight: bold;
@@ -336,3 +364,31 @@ svg:hover {
 transform: scale(1.1,1.1);
 }
 }
+
+.articleEdit {
+	@extend article;
+	width: 100%;
+	display: none;
+	&:focus {
+		background: #ffffdd;
+		}
+	}
+.blogSmall {
+	display: inline-block;
+	width: 100%;
+	margin: 1% auto;
+	background: $bgLight;
+	transition: all 0.25s;
+	&:hover {
+		box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.5);
+		}
+	}
+.blogImageSmall {
+	float: left;
+	max-width: 25%;
+	margin: 1%;
+	}
+.blogType {
+	float: right;
+	margin-right: 2%;
+	}

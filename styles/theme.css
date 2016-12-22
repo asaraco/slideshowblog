@@ -63,6 +63,46 @@ input:focus {
       display: inline-block;
       height: 2em; } }
 
+.otherdiv {
+  display: none; }
+
+.footer {
+  background-color: #666666;
+  color: #aaaaaa;
+  /*margin: 0.5em 0 0 0;*/
+  text-align: center;
+  padding: 0.25in 0.25in 0.25in 0.25in; }
+  @media screen and (max-width: 860px) {
+    .footer {
+      font-size: 0.6em; } }
+
+/*#ucPopup {
+display: none;
+position: fixed;
+width: 50em;
+height: 25em;
+top: 0.5in;
+right: 0.5in;
+z-index: 10;
+padding: 0.25in 0.25in 0.25in 0.25in;
+text-align: center;
+background: rgba(255, 255, 150, 1);
+box-shadow: 0px 0px 4px 0px $fgMed;
+h1 {
+margin-bottom: 0.25in;
+font-size: 2em;
+}
+}
+
+#ucPopupClose {
+margin-top: 0.5in;
+padding: 0.5em;
+background: rgba(255, 255, 0, 1);
+border: none;
+box-shadow: 0px 5px 4px 0px $fgMed;
+font-size: 1.5em;
+cursor: pointer;
+}*/
 .navdiv {
   background: #333333;
   display: inline-block;
@@ -125,82 +165,6 @@ input:focus {
     .svgNavHome {
       padding: 0; } }
 
-#sidebar {
-  display: none;
-  z-index: 2;
-  position: fixed;
-  left: 0;
-  width: 4em;
-  padding: 0 0.5em 0 0.5em;
-  background: white;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25); }
-  #sidebar ul {
-    list-style-type: none;
-    padding: 0; }
-    #sidebar ul li {
-      display: inline-block; }
-      #sidebar ul li img {
-        width: 100%;
-        transition: all 0.75s; }
-        #sidebar ul li img:hover {
-          -webkit-filter: drop-shadow(0px 0px 4px #333333);
-          filter: drop-shadow(0px 0px 4px #333333);
-          transition: all 0.25s; }
-
-#hamburger-menu {
-  display: none;
-  width: 4em;
-  height: 4em;
-  margin-left: -3.25em;
-  border: none;
-  background: none;
-  cursor: pointer;
-  position: absolute; }
-  #hamburger-menu:hover {
-    -webkit-filter: drop-shadow(0px 0px 2px #aaaaaa);
-    filter: drop-shadow(0px 0px 2px #aaaaaa); }
-  #hamburger-menu img {
-    width: 100%;
-    opacity: 0.5; }
-
-.otherdiv {
-  display: none; }
-
-.footer {
-  background-color: #666666;
-  color: #aaaaaa;
-  /*margin: 0.5em 0 0 0;*/
-  text-align: center;
-  padding: 0.25in 0.25in 0.25in 0.25in; }
-  @media screen and (max-width: 860px) {
-    .footer {
-      font-size: 0.6em; } }
-
-#ucPopup {
-  display: none;
-  position: fixed;
-  width: 50em;
-  height: 25em;
-  top: 0.5in;
-  right: 0.5in;
-  z-index: 10;
-  padding: 0.25in 0.25in 0.25in 0.25in;
-  text-align: center;
-  background: #ffff96;
-  box-shadow: 0px 0px 4px 0px #aaaaaa; }
-  #ucPopup h1 {
-    margin-bottom: 0.25in;
-    font-size: 2em; }
-
-#ucPopupClose {
-  margin-top: 0.5in;
-  padding: 0.5em;
-  background: yellow;
-  border: none;
-  box-shadow: 0px 5px 4px 0px #aaaaaa;
-  font-size: 1.5em;
-  cursor: pointer; }
-
 #loginBox {
   display: none;
   background-color: #333333;
@@ -244,6 +208,35 @@ input:focus {
         margin: 1%; } }
 
 #logoutForm {
+  display: none; }
+
+#editBar {
+  display: none;
+  z-index: 2;
+  position: fixed;
+  width: 5%;
+  right: 1%;
+  bottom: 1%; }
+  #editBar ul {
+    list-style-type: none;
+    padding: 0; }
+    #editBar ul li {
+      display: inline-block; }
+      #editBar ul li svg {
+        width: 100%;
+        transition: all 0.75s; }
+        #editBar ul li svg:hover {
+          -webkit-filter: drop-shadow(0px 0px 4px #333333);
+          filter: drop-shadow(0px 0px 4px #333333);
+          transition: all 0.25s; }
+
+#edit-main {
+  background: none; }
+  #edit-main:hover {
+    -webkit-filter: drop-shadow(0px 0px 2px #aaaaaa);
+    filter: drop-shadow(0px 0px 2px #aaaaaa); }
+
+#editUpdate {
   display: none; }
 
 .subdiv {
@@ -299,7 +292,20 @@ figure {
   float: right; }
   figure figcaption {
     font-family: Verdana, Arial, sans-serif;
-    font-variant: small-caps; }
+    font-variant: small-caps;
+    margin: 0.2em 0.2em 0 0.2em;
+    text-align: center; }
+    figure figcaption input {
+      font-family: inherit;
+      font-variant: inherit;
+      color: inherit;
+      background-color: transparent;
+      display: inline-block;
+      max-width: 45%;
+      text-align: center; }
+      figure figcaption input:focus {
+        background-color: #ffffdd;
+        color: black; }
     figure figcaption ul {
       margin: 0;
       padding: 0;
@@ -344,6 +350,9 @@ figure {
   margin: 0;
   background: #eeeeee;
   box-shadow: 0px -1px 5px 1px rgba(0, 0, 0, 0.5) inset; }
+  .blogheader input {
+    border: none;
+    border-bottom: 2px solid black; }
   @media screen and (max-width: 640px) {
     .blogheader {
       display: block;
@@ -374,7 +383,14 @@ figure {
       display: inline-block;
       margin: 0;
       font-family: Verdana, Arial, sans-serif;
-      font-size: 2em; }
+      font-size: 2em;
+      max-width: 45%; }
+      .blogheader .reviewHeader .rhArtist:focus, .blogheader .reviewHeader .rhAlbum:focus {
+        background: linear-gradient(0deg, rgba(255, 255, 100, 0.75), transparent); }
+      .blogheader .reviewHeader .rhArtist[disabled], .blogheader .reviewHeader .rhAlbum[disabled] {
+        border: none;
+        background: none;
+        color: #333333; }
     .blogheader .reviewHeader .rhArtist {
       font-weight: bold;
       text-align: right;
@@ -396,21 +412,21 @@ figure {
       .blogheader .reviewHeader h4 {
         margin: 1em 0 1em 0; } }
 
-article {
+article, .articleEdit {
   padding: 1in 1.25in 1in 1.25in;
   background: #ffffff;
   font-size: 1.2em;
   line-height: 1.75em;
   font-family: Tiempos, "Times New Roman", serif; }
   @media screen and (max-width: 1024px) {
-    article {
+    article, .articleEdit {
       font-size: 1em;
       padding: 0.4in 0.8in 0.8in 0.8in; } }
   @media screen and (max-width: 640px) {
-    article {
+    article, .articleEdit {
       font-size: 0.9em;
       padding: 0.25in 0.5in 0.5in 0.5in; } }
-  article ul li {
+  article ul li, .articleEdit ul li {
     line-height: 1.5em;
     margin-bottom: 1em; }
 
@@ -528,6 +544,30 @@ article {
   float: right; }
   .btnNextSlide svg:hover {
     transform: scale(1.1, 1.1); }
+
+.articleEdit {
+  width: 100%;
+  display: none; }
+  .articleEdit:focus {
+    background: #ffffdd; }
+
+.blogSmall {
+  display: inline-block;
+  width: 100%;
+  margin: 1% auto;
+  background: #ffffff;
+  transition: all 0.25s; }
+  .blogSmall:hover {
+    box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.5); }
+
+.blogImageSmall {
+  float: left;
+  max-width: 25%;
+  margin: 1%; }
+
+.blogType {
+  float: right;
+  margin-right: 2%; }
 
 blog-crud {
   display: none;

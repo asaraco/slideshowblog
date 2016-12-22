@@ -1,3 +1,4 @@
+<!--  Main navbar stuff -->
 <div class="navdiv inner">
 	<ul class="navlist">
 		<li><a id="aDropdown" ng-href="#" href="#">
@@ -5,6 +6,11 @@
 					xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use xlink:href="#navDownArrow"/>
 			</svg></a></li>
+		<li><a ng-href="#/home">
+			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
+					xmlns:xlink="http://www.w3.org/1999/xlink">
+					<use xlink:href="#navHome"/>
+			</svg><span>HOME</span></a></li>
 		<li><a ng-href="#/blog">
 			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
 					xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -15,7 +21,7 @@
 					xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use xlink:href="#navResume"/>
 			</svg><span>RESUME</span></a></li>
-		<li><a ng-href="#/musicapp">
+		<!--li><a ng-href="#/musicapp">
 			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
 					xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use xlink:href="#navMusic"/>
@@ -24,9 +30,11 @@
 			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
 					xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use xlink:href="#navGallery"/>
-			</svg><span>MUSIC GALLERY</span></a></li>
+			</svg><span>MUSIC GALLERY</span></a></li-->
 	</ul>
 </div>
+
+<!-- Login mini-form that appears when the drop-down arrow is clicked -->
 <div id="loginBox">
 		<form id="loginForm" class="logForm">
 			<div id="dUser"><label>USERNAME</label><input id="username" required autofocus></input></div>
@@ -38,4 +46,4 @@
 			<label id="loginMessage">Logged in as {{username}}</label>
 			<input type="submit" id="bLogout" class="bLog" value="LOGOUT"/>
 		</form>
-	</div>
+</div>

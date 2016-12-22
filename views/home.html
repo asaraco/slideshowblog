@@ -1,0 +1,62 @@
+<div class="subdiv">
+	<div id="slideViewPort">
+		
+		<div ng-cloak id="slideViewer" slide-player>
+		
+			<div ng-cloak id="slideshow">
+				<div ng-cloak ng-repeat="slide in slides" id="{{slide.sid}}" class="slide" style="background-image: url({{slide.simage}});">
+					<a href="{{slide.slink1}}"><p class="caption">{{slide.scap1}}</p></a>
+					<a href="{{slide.slink1}}"><div class="slideGrad"></div></a>
+					<a href="{{slide.slink2}}"><p class="subcap">{{slide.scap2}}</p></a>
+				</div>
+			</div>
+			
+			<button class="btnNav btnPN btnPrevSlide">
+				<svg class="svgNavB" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="v1.1"
+					xmlns:xlink="http://www.w3.org/1999/xlink">
+					<use xlink:href="#nextArrow"/>
+				</svg>
+			</button>
+			<button class="btnNav btnPP">
+				<svg class="svgNavB2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="v1.1"
+					xmlns:xlink="http://www.w3.org/1999/xlink">
+					<use xlink:href="#pauseLns"/>
+				</svg>
+			</button>
+			<button class="btnNav btnPN btnNextSlide">
+				<svg class="svgNavB" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="v1.1"
+					xmlns:xlink="http://www.w3.org/1999/xlink">
+					<use xlink:href="#nextArrow"/>
+				</svg>
+			</button>
+		</div>
+		
+	</div>
+
+	<div class="blogpost">
+		<article>
+			<h2>UPDATE: 11/11/2016</h2>
+			<p>Try clicking the new drop-down arrow in the upper-left corner of the navbar! Login as username & password "test" to gain access to the beta blog editor.</p>
+			<p>This is the first step in really having this site function as a real blog site with a database of articles, rather than a million hard-coded HTML files.</p>
+			<p><i>(Be warned -- I haven't tested this much with the mobile version yet.)</i>
+				
+			<h2>Welcome!</h2>
+			<p>This is Aaron Saraco's website. Currently, it is mostly a testing ground to demonstrate various skills I've been learning. I also plan to use it as a real blog some day, when I feel it's ready for prime time.</p>
+			<p>The main web technologies used here right now are:
+				<ul>
+					<li>HTML</li>
+					<li>CSS <i>(using Sass for preprocessing)</i></li>
+					<li>Angular.js <i>(and once it's in a good place, I'll see about Angular 2)</i></li>
+					<li>jQuery</li>
+					<li>Apache HTTPD web server</li>
+					<li>SVG</li>
+					<li>MongoDB - currently has 1 collection for reviews and 1 collection for user IDs/passwords</li>
+					<li>Node.js & Express.js - handles AJAX requests between website and MongoDB</li>
+				</ul>
+			</p>
+			<p>The slideshow you see above (including somewhat odd choices of placeholder images) was the first big part of this project. I figured since pretty much every major website has one of those, I should try my hand at it. Using Chrome with a touchscreen, or a mobile device, it should be touch-sensitive. Originally all of the slides were hard-coded, but they are now loaded in from a JSON file.</p>
+			<p>The next major thing I worked on was the "music database" page. This is still a work in progress (moreso than everything else) and I plan to separate it out into its own thing eventually. (But then I wouldn't have enough links on the navbar!)</p>
+			<p>I hope you enjoy this site, for whatever it's worth right now. Try not to break anything!</p>
+		</article>
+	</div>
+</div>

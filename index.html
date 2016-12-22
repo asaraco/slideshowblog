@@ -60,6 +60,30 @@
 		</g>
 	</symbol>
 	
+	<!-- Edit bar icons -->
+	<symbol id="editPencil">
+		<circle class="sbCirc" cx=70 cy=70 r=70		/>
+		<g transform="translate(25,20)">
+			<polyline 
+				points="80,20 20,80 5,85 10,70 70,10 80,20"
+				stroke="black" stroke-width="2" fill="none"		/>
+			<line stroke="black" stroke-dasharray="2,1" stroke-width="1"
+				x1=75 y1=25 x2=65 y2=15 />
+			<line stroke="black" stroke-dasharray="1,2" stroke-width="1"
+				x1=20 y1=80 x2=10 y2=70 />
+		</g>
+	</symbol>
+	<symbol id="uploadArrow">
+		<circle class="sbCirc" cx=70 cy=70 r=70		/>
+			<polyline 
+				points="70,32 90,52 50,52 70,32"
+				stroke="black" stroke-width="2" 	/>
+			<line	stroke="black" stroke-width="2"
+				x1=70 y1=32 x2=70 y2=110			/>
+			<line	stroke="black" stroke-width="2"
+				x1=40 y1=30 x2=100 y2=30				/>
+	</symbol>
+	
 	<!-- Slideshow player icons -->
 	<symbol id="nextArrow">
 		<circle class="sbCirc"	cx=50 cy=50	r=40 		/>
@@ -92,7 +116,7 @@
 <nav-bar></nav-bar>
 </div>
 
-<nav-side></nav-side>
+
 
 <blog-crud ng-cloak></blog-crud>
 
@@ -118,7 +142,7 @@
 
 <!-- Angular Directives -->
 <script type="text/javascript" src="/javascript/directives/navBar.js"></script>
-<script type="text/javascript" src="/javascript/directives/navSide.js"></script>
+<script type="text/javascript" src="/javascript/directives/editBar.js"></script>
 <script type="text/javascript" src="/javascript/directives/allFooter.js"></script>
 <script type="text/javascript" src="/javascript/directives/albumCardCurrent.js"></script>
 <script type="text/javascript" src="/javascript/directives/albumCard.js"></script>
@@ -131,6 +155,7 @@
 <script type="text/javascript" src="/javascript/controllers/slideControllerVacations.js"></script>
 <script type="text/javascript" src="/javascript/controllers/libraryController.js"></script>
 <script type="text/javascript" src="/javascript/controllers/reviewController.js"></script>
+<script type="text/javascript" src="/javascript/controllers/blogListController.js"></script>
 
 <!--  Angular Services -->
 <script type="text/javascript" src="/javascript/services/slideserv.js"></script>

@@ -11,17 +11,10 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 				var tagArrayG = $('#taTagsGenre').val().split(',');
 				var tagArrayA = $('#taTagsArtist').val().split(',');
 				var allTags = {t: tagArray, tGen: tagArrayG, tArt: tagArrayA};
-				$.ajax('http://' + location.host + ':3000/reviews', {
-					type: 'POST',
-					contentType: 'application/json',
-					dataType: 'json',
-					data: JSON.stringify({ "username": scope.username, "key": $('#selKey').val(), "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "image": $('#inpImg').val(), "tags": allTags  }),
-					success: function(response) {
-						console.log("Response!");
-						console.log(this.data);
-						console.log(response);
-					}
-				});
+				//send Post request
+				var postUrl = 'http://' + location.host + ':3000/reviews';
+				var postData = JSON.stringify({ "username": scope.username, "key": $('#selKey').val(), "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "image": $('#inpImg').val(), "tags": allTags  });
+				BlogServ.update(postUrl, postData);
 			});
 			
 			//Loading the values based on the key field
