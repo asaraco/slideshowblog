@@ -19,7 +19,7 @@ angular.module('MyPortfolio').config(function($routeProvider) {
 			controller: "BlogListController",
 			resolve: {
 				rdata: function($route, BlogServ) {
-					var dQ = { approved: 'true' };	//TODO: query to retrieve only blog posts flagged for display
+					var dQ = { approved: 'true' };
 					var dP = { };	//TODO: projection to retrieve only the data needed
 					return BlogServ.get('http://' + location.host + ':3000/reviews2', dQ, dP);
 				}

@@ -77,7 +77,7 @@ angular.module('MyPortfolio').directive("navBar", ['BlogServ', function(BlogServ
 			// Blog DB button
 			$('#showCrud').on('click', function(ev) {
 				ev.preventDefault();
-				$('blog-crud').slideDown();
+				$('blog-crud').fadeIn();
 				//Initializing the key selection dropdown
 				var dQ = { "username": scope.username };
 				//var dP = { "key": true };

@@ -2,10 +2,12 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 	return {
 		restrict: "E",
 		templateUrl: "/views/templates/blog-crud.html",
-		link: function(scope) {			
+		link: function(scope) {
 			//Submitting the form (either add or update)
 			$('#crudForm').on('submit', function(e) {
 				e.preventDefault();
+				//Flag blog as not new -- if "New" button is clicked, it gets flagged 
+				var isNew = false;
 				//Parse tags
 				var tagArray = $('#taTagsGeneral').val().split(',');
 				var tagArrayG = $('#taTagsGenre').val().split(',');
@@ -13,13 +15,23 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 				var allTags = {t: tagArray, tGen: tagArrayG, tArt: tagArrayA};
 				//send Post request
 				var postUrl = 'http://' + location.host + ':3000/reviews';
-				var postData = JSON.stringify({ "username": scope.username, "key": $('#selKey').val(), "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "image": $('#inpImg').val(), "tags": allTags  });
+				//figure out whether to grab "key" from dropdown or "new key" field
+				var postKey = isNew ? $('#selKey').val() : $('#newKey').val();
+				var postData = JSON.stringify({ "username": scope.username, "key": postKey, "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "image": $('#inpImg').val(), "tags": allTags  });
 				BlogServ.update(postUrl, postData);
 			});
 			
 			//Loading the values based on the key field
 			//$('#btnLoad').on('click', function(e) {
 			scope.loadBlog = function() {
+				isNew = false;
+				/* Initialize height of text area */
+				var newHeight = $('#cfSection1').height() - $('#labTxt').height();
+				console.log($('#cfSection1').height());
+				console.log($('#labTxt').height());
+				console.log(newHeight);
+				$('#taTxt').css('height', newHeight);
+				
 				var rs = scope.reviewSelected;
 				$('#inpArt').val(rs.artist);
 				$('#inpAlb').val(rs.album);
@@ -67,14 +79,21 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 				*/
 			}
 			
+			/* New blog button */
+			$('#newBlog').on('click', function(e) {
+				isNew = true;
+				$('#crudForm').trigger("reset");
+				$('#newKey').removeAttr('disabled');
+			});
+			
 			//Preview
 			$('#crudPreview').on('click', function(e) {
 				$(this).attr("href", "#/reviews/" + $('#selKey').val());
-			})
+			});
 			
 			//Close
 			$('#crudClose').on('click', function(e) {
-				$('blog-crud').slideUp();
+				$('blog-crud').fadeOut();
 				$('#crudForm').trigger("reset");
 			});
 		}

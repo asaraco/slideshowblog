@@ -8,7 +8,7 @@
 				<figcaption><input type="text" ng-model="blogpost.year" name="year" id="ioYear" placeholder="Year" disabled></input><input type="text" ng-model="blogpost.label" id="ioLab" name="label" placeholder="Record Label" disabled></input></figcaption>
 			</figure>
 			<div class="reviewHeader">
-				<h2>Album Review</h2>
+				<h2>{{blogpost.blogtype}}</h2>
 				<!--span class="rhArtist">{{blogpost.artist}}</span> <span class="rhAlbum">{{blogpost.album}}</span-->
 				<input class="rhArtist" type="text" ng-model="blogpost.artist" name="artist" id="ioArt" placeholder="Artist" disabled /> <input class="rhAlbum" type="text" ng-model="blogpost.album" name="album" id="ioAlb" placeholder="Album" disabled />
 				<h4>by <span id="ioAuth">{{blogpost.author}}</span></h4>

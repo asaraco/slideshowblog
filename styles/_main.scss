@@ -25,6 +25,19 @@ input:focus {
 	height: 1.25in;	//this gets overridden immediately by JS
 	}
 
+#headTitle {
+	display: inline-block;
+	margin: 0.4em 0;
+	#mainLogo img {
+		max-height: 2.5em;
+		margin: 0 0.5em;
+		transform: translateY(5%);
+		@include respond-to($breakpointType, $breakpoint3) {
+			max-height: 1.5em;
+			}
+		}
+}
+
 .heading {
 text-align: left;
 font-size: 1.5em;
@@ -39,11 +52,13 @@ position: fixed;
 background: rgba(255, 255, 255, 1.0);
 }
 h1 {
+display: inline-block;
 color: $fgLight;
-margin: 0.4em 0 0.4em 1em;
+margin: 0;
 font-size: 1.75em;
+top: 50%;
+transform: translateY(-25%);
 @include respond-to($breakpointType, $breakpoint3) {
-	margin: 0.4em 0 0.4em 0.6em;
 	font-size: 1em;
 	}
 &:hover {
@@ -90,9 +105,6 @@ color: black;
 		
 }
 
-.otherdiv {
-display: none;
-}
 .footer {
 background-color: $bgMed;
 color: $fgMed;
@@ -104,30 +116,126 @@ padding: 0.25in 0.25in 0.25in 0.25in;
 	}
 }
 
-/*#ucPopup {
-display: none;
-position: fixed;
-width: 50em;
-height: 25em;
-top: 0.5in;
-right: 0.5in;
-z-index: 10;
-padding: 0.25in 0.25in 0.25in 0.25in;
-text-align: center;
-background: rgba(255, 255, 150, 1);
-box-shadow: 0px 0px 4px 0px $fgMed;
-h1 {
-margin-bottom: 0.25in;
-font-size: 2em;
+#slideViewPort {
+	width: 100%;
+	margin: 0;
+	display: block;
 }
+#slideViewer {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0 15px rgba(0,0,0,0.5);
+	text-align: center;
+	transition: box-shadow 0.5s;
+	overflow: hidden;
+	&:hover {
+		box-shadow: 0 0 20px rgba(0,0,0,0.7);
+		}
 }
-
-#ucPopupClose {
-margin-top: 0.5in;
-padding: 0.5em;
-background: rgba(255, 255, 0, 1);
-border: none;
-box-shadow: 0px 5px 4px 0px $fgMed;
-font-size: 1.5em;
-cursor: pointer;
-}*/
+#slideshow {
+	z-index: -1;
+}
+.slide {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	a {
+		text-decoration: none;
+		}
+}
+.slideGrad {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%);
+}
+.caption {
+	font-family: Verdana, Arial, sans-serif;
+	text-decoration: none;
+	font-size: 3em;
+	@include respond-to($breakpointType, $breakpoint3) {
+		font-size: 2em;
+		}
+	@include respond-to($breakpointType, $breakpoint2) {
+		font-size: 1.5em;
+		}
+	font-variant: small-caps;
+	color: #ffffff;
+	margin: 0.65em 0 0 1em;
+	position: relative;
+	white-space: nowrap;
+	text-align: left;
+	transition: text-shadow 0.5s, color 0.5s;
+	z-index: 1;
+	&:hover {
+		text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+		color: #ffffaa
+		}
+	}
+.subcap {
+	font-family: Verdana, Arial, sans-serif;
+	text-decoration: none;
+	text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+	font-size: 1em;
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+	width: 100%;
+	padding: 0.5em 0.5em 0.8em 0.8em;
+	white-space: nowrap;
+	text-align: left;
+	transition: text-shadow 0.5s, color 0.25s;
+	&:hover {
+		text-shadow: 0px 0px 50px rgba(0, 0, 255, 1);
+		color: #00ffff;
+		}
+	}
+.btnNav  {
+	position: relative;
+	height: 100%;
+	top: 0px;
+	padding: 0;
+	vertical-align: top;
+	cursor: pointer;
+	background: transparent;
+	border: none !important;
+	outline: none !important;
+	z-index: 0;
+	svg {
+		opacity: 0.0;
+		transition: opacity 0.25s, transform 0.05s;
+		}
+	.svgNavB {
+		height: 80px;
+		width: 80px;
+		}
+	.svgNavB2 {
+		height: 120px;
+		width: 120px;
+		}
+	.btnHide {
+		visibiity: hidden;
+		}
+	}
+.btnPrevSlide {
+	float: left;
+	svg {
+		transform: scale(-1,1);
+	&:hover {
+		transform: scale(-1.1,1.1);
+			}
+		}
+	}
+.btnNextSlide {
+	float: right;
+	svg:hover {
+		transform: scale(1.1,1.1);
+		}
+	}

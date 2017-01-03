@@ -1,24 +1,17 @@
 <div class="subdiv">
 	<div id="listofposts">
-	
-		<div class="blogpost" ng-repeat="blogpost in blogposts">
-			<div class="blogSmall">
-				<a href="#/reviews/{{blogpost.key}}"><img class="blogImageSmall" ng-src="../../res/img/coverimages/{{blogpost.image}}" alt="{{blogpost.artist}} - {{blogpost.album}}"></img></a>
-				<p class="blogType">ALBUM REVIEW</p>
-				<h2>{{blogpost.artist}} - {{blogpost.album}}</h2>
-				<h4>by {{blogpost.author}}</h4>
-				<ul class="tagsList">
-					<!-- li><p class="tagsHead">TAGS:</p></li-->
-					<li class="tag" ng-repeat="tag in blogpost.tags.t">{{tag}}</li>
-					<li class="tag tagGenre" ng-repeat="tag in blogpost.tags.tGen">{{tag}}</li>
-					<li class="tag tagArtist" ng-repeat="tag in blogpost.tags.tArt">{{tag}}</li>
-				</ul>
-				
-				<!-- article ng-bind-html="blogpost.text">
-					
-				</article-->
-			</div>
+		<div class="blogSmall" ng-repeat="blogpost in blogposts">
+			<a href="#/reviews/{{blogpost.key}}"><img class="blogImageSmall" ng-src="../../res/img/coverimages/{{blogpost.image}}" alt="{{blogpost.artist}} - {{blogpost.album}}"></img></a>
+			<p class="blogType">{{blogpost.blogtype}}</p>
+			<h2>{{blogpost.artist}} - {{blogpost.album}}</h2>
+			<h4>by {{blogpost.author}}</h4>
+			<article ng-bind-html="blogpost.summary"></article>
+			<ul class="tagsList">
+				<!-- li><p class="tagsHead">TAGS:</p></li-->
+				<li class="tag" ng-repeat="tag in blogpost.tags.t" tags-list>{{tag}}</li>
+				<li class="tag tagGenre" ng-repeat="tag in blogpost.tags.tGen">{{tag}}</li>
+				<li class="tag tagArtist" ng-repeat="tag in blogpost.tags.tArt">{{tag}}</li>
+			</ul>
 		</div>
-		
 	</div>
 </div>
