@@ -1,4 +1,4 @@
-angular.module('MyPortfolio').controller('BlogListController', [ '$scope', '$sce', 'rdata', function($scope, $sce, rdata) {
+angular.module('MyPortfolio').controller('BlogListController', [ '$scope', '$sce', 'rdata', 'BlogServ', function($scope, $sce, rdata, BlogServ) {
 	//$('#pageTitle').text("Aaron's Blog");
 	
 	//receive slide data from "BlogServ" factory, by way of route resolve
@@ -16,5 +16,27 @@ angular.module('MyPortfolio').controller('BlogListController', [ '$scope', '$sce
 		}
 		post.summary = currText.substr(0, firstP);
 		console.log(post.summary);
+	}
+	
+	$scope.tagApply = function(type, tag) {
+		//Pass in tag type -- figure out a better way to do this later
+		console.log(type);
+		var dQ = { };
+		if (type == 't') {
+			dQ = { approved: 'true', 'tags.t': tag };
+		} else if (type == 'tGen') {
+			dQ = { approved: 'true', 'tags.tGen': tag };
+		} else if (type == 'tArt') {
+			dQ = { approved: 'true', 'tags.tArt': tag };
+		}
+		
+		var dP = { };
+		BlogServ.get('http://' + location.host + ':3000/reviews2', dQ, dP).then(function(data) {
+			var taggedBlogs = data.data;
+			$scope.blogposts = taggedBlogs;
+			console.log("taggedBlogs:");
+			console.log(taggedBlogs);
+		});
+		
 	}
 }]);
