@@ -3,11 +3,12 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 		restrict: "E",
 		templateUrl: "/views/templates/blog-crud.html",
 		link: function(scope) {
+			var isNew = false;
 			//Submitting the form (either add or update)
 			$('#crudForm').on('submit', function(e) {
 				e.preventDefault();
 				//Flag blog as not new -- if "New" button is clicked, it gets flagged 
-				var isNew = false;
+				isNew = false;
 				//Parse tags
 				var tagArray = $('#taTagsGeneral').val().split(',');
 				var tagArrayG = $('#taTagsGenre').val().split(',');
@@ -16,7 +17,7 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 				//send Post request
 				var postUrl = 'http://' + location.host + ':3000/reviews';
 				//figure out whether to grab "key" from dropdown or "new key" field
-				var postKey = isNew ? $('#selKey').val() : $('#newKey').val();
+				var postKey = isNew ? $('#newKey').val() : $('#selKey').val();
 				var postData = JSON.stringify({ "username": scope.username, "key": postKey, "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "image": $('#inpImg').val(), "tags": allTags  });
 				BlogServ.update(postUrl, postData);
 			});
