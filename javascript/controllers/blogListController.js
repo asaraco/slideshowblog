@@ -23,6 +23,8 @@ angular.module('MyPortfolio').controller('BlogListController', [ '$scope', '$sce
 	$scope.tagApply = function(type, tag) {
 		//Pass in tag type -- figure out a better way to do this later
 		console.log(type);
+		//Trim whitespace from tag
+		tag = tag.trim();
 		var dQ = { };
 		if (type == 't') {
 			dQ = { approved: 'true', 'tags.t': tag };

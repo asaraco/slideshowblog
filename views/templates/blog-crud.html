@@ -12,6 +12,7 @@
 			<select id="selKey" name="key" ng-options="review.key for review in reviewsByUser track by review.key" ng-model="reviewSelected" ng-change="loadBlog()" class="bcInput">
 				<option value="">Select Review</option>
 			</select>
+			<input id="inpID" placeholder="Enter ID" class="bcInput"></input>
 			<!-- button id="btnLoad">LOAD</button--><br>
 			<label>Artist</label><input id="inpArt" name="artist" placeholder="Artist Name" class="bcInput"></input><br>
 			<label>Album Title</label><input id="inpAlb" name="album" placeholder="Album Title" class="bcInput"></input><br>
@@ -26,6 +27,11 @@
 			<input type="submit" value="SUBMIT!" id="mongosub" class="bcButton"> &nbsp <a href="#/reviews" id="crudPreview" target="_blank" class="bcButton">View Page</a>
 		</div>
 		<div id="cfSection2">
+			<label id="labAppr">Approve Blog For Display</label>
+			<select id="selAppr" name="approved" class="bcInput">
+				<option value="false">false</option>
+				<option value="true">true</option>
+			</select><br>
 			<label id="labTxt">Review Text</label><br>
 			<textarea id="taTxt" name="text" placeholder="Enter review text here..." class="bcInput"></textarea>
 		</div>
