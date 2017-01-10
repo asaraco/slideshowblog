@@ -1,7 +1,7 @@
 <div class="subdiv">
 	<div id="listofposts">
 		<div class="blogSmall" ng-repeat="blogpost in blogposts">
-			<a href="#/reviews/{{blogpost.key}}"><img class="blogImageSmall" ng-src="../../res/img/coverimages/{{blogpost.image}}" alt="{{blogpost.artist}} - {{blogpost.album}}"></img></a>
+			<a href="#/reviews/{{blogpost._id}}"><img class="blogImageSmall" ng-src="../../res/img/coverimages/{{blogpost.image}}" alt="{{blogpost.artist}} - {{blogpost.album}}"></img></a>
 			<p class="blogType">{{blogpost.blogtype}}</p>
 			<h2>{{blogpost.artist}} - {{blogpost.album}}</h2>
 			<h4>by {{blogpost.author}}</h4>

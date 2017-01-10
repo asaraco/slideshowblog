@@ -22,16 +22,19 @@ angular.module('MyPortfolio').controller('BlogListController', [ '$scope', '$sce
 	/* Function called when you click on a tag */
 	$scope.tagApply = function(type, tag) {
 		//Pass in tag type -- figure out a better way to do this later
-		console.log(type);
 		//Trim whitespace from tag
 		tag = tag.trim();
 		var dQ = { };
-		if (type == 't') {
-			dQ = { approved: 'true', 'tags.t': tag };
-		} else if (type == 'tGen') {
-			dQ = { approved: 'true', 'tags.tGen': tag };
-		} else if (type == 'tArt') {
-			dQ = { approved: 'true', 'tags.tArt': tag };
+		switch (type) {
+			case 't':
+				dQ = { approved: 'true', 'tags.t': tag };
+				break;
+			case 'tGen':
+				dQ = { approved: 'true', 'tags.tGen': tag };
+				break;
+			case 'tArt':
+				dQ = { approved: 'true', 'tags.tArt': tag };
+				break;
 		}
 		
 		var dP = { };

@@ -173,8 +173,8 @@ figure {
 			display: inline-block;
 			margin: 0;
 			font-family: Verdana, Arial, sans-serif;
-			font-size: 2em;
-			max-width: 45%;
+			font-size: 1.5em;
+			max-width: 49%;
 			&:focus {
 				background: linear-gradient(0deg, rgba(255,255,100,0.75), rgba(0,0,0,0))
 				}
@@ -207,7 +207,7 @@ figure {
 				font-size: 3em;
 				}
 			.rhArtist, .rhAlbum {
-				font-size: 1.8em;
+				font-size: 1.2em;
 				}
 			h4 {
 				margin: 1em 0 1em 0;

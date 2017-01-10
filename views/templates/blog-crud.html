@@ -1,19 +1,13 @@
 <div class="dCrud">
-	<!-- >div id="bcExp">
-		<p>This is a beta version of the blog editing interface. Currently you can select an existing review from the drop-down list labeled "KEY" and edit it. Later you will be able to create a new one.</p>
-		<p>A lot more work needs to be done for the user security (and making sure 2 users don't create a review with the same key).</p>
-		<p>When you're done, your review should be available for viewing at the URL http://asaraco.net/reviews/REVIEWKEY</p> 
-	</div-->
 	<div id="blogAlert"><span></span></div><br>
+	
 	<form id="crudForm" action='/reviews' method='POST'>
 		<div id="cfSection1">
-			<button id="newBlog">NEW</button><input id="newKey" placeholder="Enter Key" disabled class="bcInput"></input><br>
-			<label>KEY</label>
-			<select id="selKey" name="key" ng-options="review.key for review in reviewsByUser track by review.key" ng-model="reviewSelected" ng-change="loadBlog()" class="bcInput">
+			<label>ID</label><select id="selID" name="_id" ng-options="review._id for review in reviewsByUser track by review._id" ng-model="reviewSelected" ng-change="loadBlog()" class="bcInput" required>
 				<option value="">Select Review</option>
-			</select>
-			<input id="inpID" placeholder="Enter ID" class="bcInput"></input>
-			<!-- button id="btnLoad">LOAD</button--><br>
+			</select><button id="newBlog">NEW</button>
+			<br>
+			
 			<label>Artist</label><input id="inpArt" name="artist" placeholder="Artist Name" class="bcInput"></input><br>
 			<label>Album Title</label><input id="inpAlb" name="album" placeholder="Album Title" class="bcInput"></input><br>
 			<label>Cover Image</label><input id="inpImg" name="image" class="bcInput"></input><br>
@@ -24,14 +18,31 @@
 			<label>General</label><textarea id="taTagsGeneral" class="bcInput"></textarea><br>
 			<label>Genre</label><textarea id="taTagsGenre" class="bcInput"></textarea><br>
 			<label>Artist</label><textarea id="taTagsArtist" class="bcInput"></textarea><br>
-			<input type="submit" value="SUBMIT!" id="mongosub" class="bcButton"> &nbsp <a href="#/reviews" id="crudPreview" target="_blank" class="bcButton">View Page</a>
+			
+			<input type="submit" value="SUBMIT!" id="mongosub" class="bcButton"> &nbsp
+			<a href="#/reviews" id="crudPreview" target="_blank" class="bcButton">View Page</a> &nbsp
+			<button id="saveAs" class="bcButton">SAVE AS</button>
 		</div>
+		
 		<div id="cfSection2">
+			<input id="newKey" placeholder="Enter Key" disabled class="bcInput"></input><br>
+			<label>[DEPRECATED] KEY</label>
+			<select id="selKey" name="key" ng-options="review.key for review in reviewsByUser track by review.key" ng-model="reviewSelected" ng-change="loadBlog()" class="bcInput">
+				<option value="">Select Review</option>
+			</select>
+		
 			<label id="labAppr">Approve Blog For Display</label>
 			<select id="selAppr" name="approved" class="bcInput">
 				<option value="false">false</option>
 				<option value="true">true</option>
 			</select><br>
+			
+			<label id="labType">Blog Type</label>
+			<select id="selType" name="blogtype" class="bcInput">
+				<option value="">Select Type</option>
+				<option value="Album Review">Album Review</option>
+			</select><br>
+			
 			<label id="labTxt">Review Text</label><br>
 			<textarea id="taTxt" name="text" placeholder="Enter review text here..." class="bcInput"></textarea>
 		</div>

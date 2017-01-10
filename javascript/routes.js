@@ -55,7 +55,7 @@ angular.module('MyPortfolio').config(function($routeProvider) {
 			controller: "ReviewController",
 			resolve: {
 				rdata: function($route, BlogServ) {
-					var dQ = { key: $route.current.params.name };
+					var dQ = { _id: $route.current.params.name };
 					var dP = {  };
 					return BlogServ.get('http://' + location.host + ':3000/reviews2', dQ, dP);
 				}

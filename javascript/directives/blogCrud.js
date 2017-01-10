@@ -6,40 +6,39 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 			//Flag blog as not new -- if "New" button is clicked, it gets flagged
 			var isNew = false;
 			
-			//Submitting the form (either add or update)
-			$('#crudForm').on('submit', function(e) {
-				e.preventDefault();
-				
+			/* Function used for POSTing a blog entry to the Node Mongo interface */
+			var postBlog = function(postKey) {
 				/* Parse tags, including removing whitespace
 				 * CLEAN THIS UP A LITTLE LATER */
 				var tagArray = $('#taTagsGeneral').val().split(',');
 				for (t in tagArray) {
-					t = t.trim();
+					tagArray[t] = tagArray[t].trim();
 				}
 				var tagArrayG = $('#taTagsGenre').val().split(',');
 				for (t in tagArrayG) {
-					t = t.trim();
+					tagArrayG[t] = tagArrayG[t].trim();
 				}
 				var tagArrayA = $('#taTagsArtist').val().split(',');
-				for (t in tagArrayA) {
-					t = t.trim();
+				for (t in tagArrayA) {;
+					tagArrayA[t] = tagArrayA[t].trim();
 				}
 				var allTags = {t: tagArray, tGen: tagArrayG, tArt: tagArrayA};
 				
 				/* send POST request */
 				var postUrl = 'http://' + location.host + ':3000/reviews';
 				//figure out whether to grab "key" from dropdown or "new key" field
-				var postKey = isNew ? $('#newKey').val() : $('#selKey').val();
 				//var postID = isNew ? $('#inpID').val() : $('#selKey').val();
 				if (isNew) {
 					console.log("It's New");
-					var postData = JSON.stringify({ "username": scope.username, "_id": $('#inpID').val(), "key": postKey, "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "image": $('#inpImg').val(), "approved": $('#selAppr').val(), "tags": allTags  });
+					var postData = JSON.stringify({ "username": scope.username, "_id": postKey, "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "image": $('#inpImg').val(), "approved": $('#selAppr').val(), "blogtype": $('#selType').val(), "tags": allTags  });
 				} else {
 					console.log("It's Old")
-					var postData = JSON.stringify({ "username": scope.username, "key": postKey, "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "image": $('#inpImg').val(), "approved": $('#selAppr').val(), "tags": allTags  });
+					var postData = JSON.stringify({ "username": scope.username, "_id": postKey, "artist": $('#inpArt').val(), "album": $('#inpAlb').val(), "year": parseInt($('#inpYear').val()), "label": $('#inpLab').val(), "author": $('#inpAuth').val(), "text": $('#taTxt').val(), "image": $('#inpImg').val(), "approved": $('#selAppr').val(), "blogtype": $('#selType').val(), "tags": allTags  });
 				}
+				console.log("POSTDATA");
+				console.log(postData);
 				BlogServ.update(postUrl, postData);
-			});
+			}
 			
 			//Loading the values based on the key field
 			scope.loadBlog = function() {
@@ -58,6 +57,7 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 				$('#inpArt').val(rs.artist);
 				$('#inpAuth').val(rs.author);
 				$('#selAppr').val(rs.approved);
+				$('#selType').val(rs.blogtype);
 				$('#taTxt').val(rs.text);
 				
 				if (rs.tags) {
@@ -66,54 +66,43 @@ angular.module('MyPortfolio').directive("blogCrud", ['BlogServ', function(BlogSe
 					$('#taTagsGenre').val(rs.tags.tGen);
 					$('#taTagsArtist').val(rs.tags.tArt);
 				}
-				
-				/*** DELETE THIS CODE LATER... BUT FOR NOW LEAVE IT, YOU PUT A LOT OF WORK INTO IT **
-				var dQ = { "key": $('#taKey').val(), "username": scope.username };
-				var dP = {};
-				$.ajax('http://' + location.host + ':3000/reviews2', {
-					type: 'GET',
-					dataType: 'json',
-					data: { dQuery: dQ, dProjection: dP },
-					//data: { "key": $('#taKey').val(), "username": scope.username },
-					success: function(data) {
-						//The returned data is an array because in theory, a query can return multiple results.
-						//But for our purposes we're not doing that, so it should always be index 0.
-						console.log("Success!");
-						if (data[0]) {
-							$('#blogAlert').removeClass('error').css("visibility", "hidden");;
-							$('#blogAlert span').text("");
-							$('#taArt').val(data[0].artist);
-							$('#taAlb').val(data[0].album);
-							$('#taYear').val(data[0].year);
-							$('#taLab').val(data[0].label);
-							$('#taArt').val(data[0].artist);
-							$('#taAuth').val(data[0].author);
-							$('#taTxt').val(data[0].text);
-						} else {
-							$('#blogAlert').removeClass('ok').addClass('error').fadeIn().css("visibility", "visible");
-							$('#blogAlert span').text("No blog entries found.");
-						}
-					}
-				});
-				*/
 			}
 			
 			/* New blog button */
 			$('#newBlog').on('click', function(e) {
+				e.preventDefault();
 				isNew = true;
 				$('#crudForm').trigger("reset");
 				$('#newKey').removeAttr('disabled');
 			});
 			
-			//Preview
+			/* Save As button */
+			$('#saveAs').on('click', function(e) {
+				e.preventDefault();
+				var newKey = prompt("Enter the new key that you want to save the blog as:");
+				if (newKey) {
+					isNew = true;
+					console.log("IsNew: "+isNew);
+					postBlog(newKey);
+				}
+			});
+			
+			/* Preview button */
 			$('#crudPreview').on('click', function(e) {
 				$(this).attr("href", "#/reviews/" + $('#selKey').val());
 			});
 			
-			//Close
+			/* Close button */
 			$('#crudClose').on('click', function(e) {
 				$('blog-crud').fadeOut();
 				$('#crudForm').trigger("reset");
+			});
+			
+			/* Submit button */
+			$('#crudForm').on('submit', function(e) {
+				e.preventDefault();
+				isNew = false;	//this should already be false, but just in case
+				postBlog($('#selID').val());
 			});
 		}
 	}

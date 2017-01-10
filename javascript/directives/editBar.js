@@ -29,7 +29,7 @@ angular.module('MyPortfolio').directive("editBar", ['BlogServ', function(BlogSer
 				e.preventDefault();
 				//send Post request
 				var postUrl = 'http://' + location.host + ':3000/reviews';
-				var postData = JSON.stringify({ "username": scope.blogpost.username, "key": scope.blogpost.key, "artist": $('#ioArt').val(), "album": $('#ioAlb').val(), "year": parseInt($('#ioYear').val()), "label": $('#ioLab').val(), "text": $('#ioTxt').val() });
+				var postData = JSON.stringify({ "username": scope.blogpost.username, "_id": scope.blogpost._id, "artist": $('#ioArt').val(), "album": $('#ioAlb').val(), "year": parseInt($('#ioYear').val()), "label": $('#ioLab').val(), "text": $('#ioTxt').val() });
 				var upPromise = BlogServ.update(postUrl, postData);
 				/***** TODO: verify what would happen if the update is NOT successful *****/
 				if (upPromise) {
