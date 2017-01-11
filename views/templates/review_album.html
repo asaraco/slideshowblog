@@ -1,39 +1,36 @@
 <div class="subdiv">
 
+<form id="editModeForm" action='/reviews' method='POST'>
 	<div class="blogpost">
 		<section class="blogheader">
 			<figure>
 				<img class="reviewAlbumCover" ng-src="../../res/img/coverimages/{{blogpost.image}}" alt="{{blogpost.artist}} - {{blogpost.album}}"></img>
-				<figcaption><ul><li>{{blogpost.year}}</li><li>{{blogpost.label}}</li></ul></figcaption>
+				<figcaption><input type="text" ng-model="blogpost.year" name="year" id="ioYear" placeholder="Year" disabled></input><input type="text" ng-model="blogpost.label" id="ioLab" name="label" placeholder="Record Label" disabled></input></figcaption>
 			</figure>
 			<div class="reviewHeader">
-				<h2>Album Review</h2>
-				<span class="rhArtist">{{blogpost.artist}}</span> <span class="rhAlbum">{{blogpost.album}}</span>
-				<h4>by {{blogpost.author}}</h4>
+				<h2>{{blogpost.blogtype}}</h2>
+				<!--span class="rhArtist">{{blogpost.artist}}</span> <span class="rhAlbum">{{blogpost.album}}</span-->
+				<input class="rhArtist" type="text" ng-model="blogpost.artist" name="artist" id="ioArt" placeholder="Artist" disabled /> <input class="rhAlbum" type="text" ng-model="blogpost.album" name="album" id="ioAlb" placeholder="Album" disabled />
+				<h4>by <span id="ioAuth">{{blogpost.author}}</span></h4>
 				<ul class="tagsList">
 					<!-- li><p class="tagsHead">TAGS:</p></li-->
-					<li class="tag">Music</li>
-					<li class="tag">Review</li>
-					<li class="tag tagGenre">Rock</li>
-					<li class="tag tagGenre">Electronic</li>
-					<li class="tag tagGenre">Pop</li>
-					<li class="tag">Remix</li>
-					<li class="tag tagArtist">Mutemath</li>
-					<li class="tag tagArtist">Disero</li>
-					<li class="tag tagArtist">Hasta</li>
-					<li class="tag tagArtist">Yacht Club</li>
-					<li class="tag tagArtist">Flint Eastwood</li>
-					<li class="tag tagArtist">Imagined Herbal Flows</li>
-					<li class="tag tagArtist">JT Daly</li>
-					<li class="tag tagArtist">Kasbo</li>
+					<li class="tag" ng-repeat="tag in blogpost.tags.t">{{tag}}</li>
+					<li class="tag tagGenre" ng-repeat="tag in blogpost.tags.tGen">{{tag}}</li>
+					<li class="tag tagArtist" ng-repeat="tag in blogpost.tags.tArt">{{tag}}</li>
 				</ul>
 			</div>
 		</section>
 		
-		<article ng-bind-html="blogpost.text">
-			
+		<article ng-bind-html="blogpost.text">	
 		</article>
+		
+		<textarea class="articleEdit" ng-model="blogpost.text" name="test" id="ioTxt">
+		</textarea>
 	
 	</div>
 	
+	<edit-bar></edit-bar>
+	
+</form>
+
 </div>

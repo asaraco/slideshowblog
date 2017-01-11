@@ -58,7 +58,7 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 				var viewport = $('#slideViewPort');
 				var slideWidth = viewport.width();
 				// Make slideshow 2/3 height of width
-				viewport.css("height", slideWidth*0.35 + "px");
+				viewport.css("height", slideWidth*0.3 + "px");
 				// Recapture slide width when viewport is resized, and adjust inactive slide positions
 				$(window).resize(function() {
 					var oldSlideWidth = slideWidth;
@@ -66,7 +66,7 @@ angular.module('MyPortfolio').directive("slidePlayer", ['$interval', function($i
 					$('.hiddenL').css("left", "-" + slideWidth + "px");
 					$('.hiddenR').css("left", slideWidth + "px");
 					//  Make slideshow 2/3 height of width
-					viewport.css("height", slideWidth*0.35 + "px");
+					viewport.css("height", slideWidth*0.3 + "px");
 				});
 				
 				

@@ -1,15 +1,27 @@
 angular.module('MyPortfolio').config(function($routeProvider) {
 	$routeProvider
 		.when('/', {
-			redirectTo: '/blog'
+			redirectTo: '/home'
 		})
 		
-		.when('/blog', {
-			templateUrl: "/views/blog.html",
+		.when('/home', {
+			templateUrl: "/views/home.html",
 			controller: "SlideController",
 			resolve: {
 				mainslides: function(SlideServ) {
 					return SlideServ.getMain('/res/json/slides_main.json');
+				}
+			}
+		})
+		
+		.when('/blog', {
+			templateUrl: "/views/blog.html",
+			controller: "BlogListController",
+			resolve: {
+				rdata: function($route, BlogServ) {
+					var dQ = { approved: 'true' };
+					var dP = { };	//TODO: projection to retrieve only the data needed
+					return BlogServ.get('http://' + location.host + ':3000/reviews2', dQ, dP);
 				}
 			}
 		})
@@ -43,7 +55,9 @@ angular.module('MyPortfolio').config(function($routeProvider) {
 			controller: "ReviewController",
 			resolve: {
 				rdata: function($route, BlogServ) {
-					return BlogServ.get('http://asaraco.net:3000/reviews2', { "key": $route.current.params.name });
+					var dQ = { _id: $route.current.params.name };
+					var dP = {  };
+					return BlogServ.get('http://' + location.host + ':3000/reviews2', dQ, dP);
 				}
 			}
 		})

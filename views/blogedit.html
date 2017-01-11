@@ -1,0 +1,30 @@
+	<div id="blogAlert"><span></span></div><br>
+	<form id="crudForm" action='/reviews' method='POST'>
+		<div id="cfSection1">
+			<label>KEY</label>
+			<select id="selKey" name="key" ng-options="review.key for review in reviewsByUser track by review.key" ng-model="reviewSelected" ng-change="loadBlog()">
+				<option value="">Select Review</option>
+			</select>
+			<!-- button id="btnLoad">LOAD</button--><br>
+		</div>
+		<div id="cfSection2">
+			<label>Artist</label><input id="inpArt" name="artist" placeholder="Artist Name"></input><br>
+			<label>Album Title</label><input id="inpAlb" name="album" placeholder="Album Title"></input><br>
+			<label>Cover Image</label><input id="inpImg" name="image"></input><br>
+			<label>Year</label><input id="inpYear" name="year" placeholder="Year"></input><br>
+			<label>Record Label</label><input id="inpLab" name="label" placeholder="Record Label"></input><br>
+			<label>Review Author</label><input id="inpAuth" name="author" placeholder="Review Author"></input><br>
+			<label>Review Text</label><textarea id="taTxt" name="text" placeholder="Enter review text here..."></textarea><br>
+		</div>
+		<div id="cfSection3">
+			<label>TAGS:</label><br>
+			<label>General</label><textarea id="taTagsGeneral"></textarea><br>
+			<label>Genre</label><textarea id="taTagsGenre"></textarea><br>
+			<label>Artist</label><textarea id="taTagsArtist"></textarea><br>		
+		</div>
+		<div id="cfSection4">
+			<input type="submit" value="SUBMIT!" id="mongosub"> &nbsp <a href="#/reviews" id="crudPreview" target="_blank">View Page</a>
+		</div>
+	</form>
+	
+	<button id="crudClose">X</button>

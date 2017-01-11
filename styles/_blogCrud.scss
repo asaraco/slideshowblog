@@ -8,29 +8,22 @@ $baOkFG: #003300;
 blog-crud {
 	display: none;
 	position: fixed;
-	top: 0;
+	top: 5%;
+	left: 5%;
 	z-index: 100;
-	width: 75%;
-	min-height: 75%;
+	width: 90%;
+	height: 90%;
 	background-color: rgba(#111111, 0.9);
 	color: $fgDark;
-	}
+	input, select {
+		min-width: 13em;
+		}
+}
 
 #bcExp {
 	color: $fgDark;
 	font-size: 0.75em;
 	padding: 1em;
-	}
-	
-.dCrud {
-	label {
-		font-size: 0.8em;
-		display: inline-block;
-		min-width: 12em;
-		text-align: right;
-		vertical-align: top;
-		padding-right: 1em;
-		}
 	}
 
 #blogAlert {
@@ -53,11 +46,6 @@ blog-crud {
 		}
 	}
 
-#taTxt {
-	width: 80%;
-	height: 50%;
-	}
-
 #crudClose {
 	border: none;
 	position: absolute;
@@ -67,4 +55,64 @@ blog-crud {
 	background: none;
 	color: white;
 	cursor: pointer;
+	}
+#crudPreview {
+	color: white;
+	}
+
+@include respond-to($breakpointType, $breakpoint2) {
+	blog-crud {
+		width: 100%;
+		height: 100%;
+		div {
+			display: block;
+			width: 100%;
+			}
+		label {
+			text-align: left;
+			}
+		#bcExp {
+			display: none;
+			}
+		}
+}
+
+#crudForm {
+	display: inline;
+	div {
+		display: inline-block;
+	}
+	#cfSection1 {
+		width: 25%;
+		label {
+			font-size: 0.8em;
+			display: inline-block;
+			min-width: 12em;
+			text-align: right;
+			vertical-align: top;
+			padding-right: 1em;
+			}
+		}
+	#cfSection2 {
+		width: 70%;
+		textarea {
+			width: 100%;
+			height: 100%;
+			}
+		}
+}
+
+.bcInput {
+	&:focus {
+		background-color: $inpFocusBG;
+		}
+	}
+.bcButton {
+	border: none;
+	background-color: #555555;
+	color: #ffffff;
+	&:focus, &:hover {
+		background-color: #ccffcc;
+		color: #333333;
+		}
 	}

@@ -5,7 +5,8 @@ $fgMed: #aaaaaa;
 $fgDark: #eeeeee;
 $bgLight: #ffffff;
 $bgMed: #666666;
-$bgDark: #333333; 
+$bgDark: #333333;
+$inpFocusBG: #ffffaa;
 
 /*.maindiv {
 	margin-top: 1.4in;
@@ -14,11 +15,28 @@ $bgDark: #333333;
 	}
 }*/
 
+input:focus {
+	background-color: $inpFocusBG;
+	}
+
 #headFiller {
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
 	width: 100%;
 	height: 1.25in;	//this gets overridden immediately by JS
 	}
+
+#headTitle {
+	display: inline-block;
+	margin: 0.4em 0;
+	#mainLogo img {
+		max-height: 2.5em;
+		margin: 0 0.5em;
+		transform: translateY(5%);
+		@include respond-to($breakpointType, $breakpoint3) {
+			max-height: 1.5em;
+			}
+		}
+}
 
 .heading {
 text-align: left;
@@ -34,11 +52,13 @@ position: fixed;
 background: rgba(255, 255, 255, 1.0);
 }
 h1 {
+display: inline-block;
 color: $fgLight;
-margin: 0.4em 0 0.4em 1em;
+margin: 0;
 font-size: 1.75em;
+top: 50%;
+transform: translateY(-25%);
 @include respond-to($breakpointType, $breakpoint3) {
-	margin: 0.4em 0 0.4em 0.6em;
 	font-size: 1em;
 	}
 &:hover {
@@ -49,145 +69,42 @@ color: black;
 
 .poweredby {
 	position: absolute;
-	right: 0.25in;
+	text-align: right;
+	top: 7%;
+	right: 1%;
 	padding: 0.1in 0.1in 0 0;
 	font-size: 0.5em;
 	color: $fgMed;
-	img {
-		height: 1.25em;
+	@include respond-to(min-width, $breakpoint3) {
+		a:nth-child(2):after {
+			content: "\A";
+			white-space: pre;
+			}
 		}
 	@include respond-to($breakpointType, $breakpoint2) {
 		display: none;
-		}
-}
-
-.navdiv {
-background: $bgDark;
-display: inline-block;
-position: relative;
-font-size: 0.75em;
-width: 100%;
-}
-
-.inner {
-padding: 0;
-margin: 0;
-}
-
-.navlist {
-list-style-type: none;
-margin: 0;
-	li {
-		display: inline;
-		a {
-			display: inline-block;
-			margin: 0;
-			padding: 0.5em 1em 0.5em 0;
-			text-decoration: none;
-			transition: all 0.75s;
-			transition-timing-function: ease-in-out;
-			opacity: 1.0;
-			span {
-				position: relative;
-				margin: 0 auto;
-				bottom: 7px;
-			}
-			&:link {
-			color: $fgDark;
-			}
-			&:visited {
-			color: $fgDark;
-			}
-			&:hover {
-			color: $fgLight;
-			background-color: rgba(220, 220, 255, 0.7);
-			transition: color 0.1s, background-color 0.25s;
-			}
-			&:active {
-			color: rgba(180, 200, 180, 0.8);
-			transform: scale(1.1,1.1);
-			}
-		}
-		#aHamburger {
-			padding: 0.5em 0;
-			cursor: pointer;
-			}
 	}
+	img {
+		vertical-align: middle;
+		}
+	.imgLg {
+		width: 5em;
+		}
+	.imgMd {
+		display: none;
+		}
 	@include respond-to($breakpointType, $breakpoint3) {
-		margin: 4px 0 2px 0;
-		padding: 0 0 0 0.8em;
-		li a {
-			padding: 0;
-			span {
-				display: none;
-				}
+		.imgLg {
+			display: none;
 			}
-			.svgNavHome {
-				margin: 0;
-				}
-	}
+		.imgMd {
+			display: inline-block;
+			height: 2em;
+			}
+		}
+		
 }
 
-.svgNavHome {
-	//display: none;
-	display: inline-block;
-	height: 30px;
-	width: 30px;
-	margin: 0 0.5em; 
-	@include respond-to($breakpointType, $breakpoint2) {
-		padding: 0;
-	}
-}
-
-#sidebar {
-display: none;
-z-index: 2;
-position: fixed;
-left: 0;
-width: 4em;
-padding: 0 0.5em 0 0.5em;
-background: rgba(255, 255, 255, 1.0);
-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
-ul {
-list-style-type: none;
-padding: 0;
-li {
-display: inline-block;
-img {
-width: 100%;
-transition: all 0.75s;
-&:hover {
--webkit-filter: drop-shadow(0px 0px 4px $fgLight);
-filter: drop-shadow(0px 0px 4px $fgLight);
-transition: all 0.25s;
-}
-}
-}
-}
-}
-
-#hamburger-menu {
-display: none;
-width: 4em;
-height: 4em;
-margin-left: -3.25em;
-border: none;
-background: none;
-cursor: pointer;
-position: absolute;
-&:hover {
--webkit-filter: drop-shadow(0px 0px 2px $fgMed);
-filter: drop-shadow(0px 0px 2px $fgMed);
-}
-img {
-width: 100%;
-opacity: 0.5;
-}
-}
-
-.otherdiv {
-display: none;
-}
 .footer {
 background-color: $bgMed;
 color: $fgMed;
@@ -199,69 +116,126 @@ padding: 0.25in 0.25in 0.25in 0.25in;
 	}
 }
 
-#ucPopup {
-display: none;
-position: fixed;
-width: 50em;
-height: 25em;
-top: 0.5in;
-right: 0.5in;
-z-index: 10;
-padding: 0.25in 0.25in 0.25in 0.25in;
-text-align: center;
-background: rgba(255, 255, 150, 1);
-box-shadow: 0px 0px 4px 0px $fgMed;
-h1 {
-margin-bottom: 0.25in;
-font-size: 2em;
+#slideViewPort {
+	width: 100%;
+	margin: 0;
+	display: block;
 }
+#slideViewer {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0 15px rgba(0,0,0,0.5);
+	text-align: center;
+	transition: box-shadow 0.5s;
+	overflow: hidden;
+	&:hover {
+		box-shadow: 0 0 20px rgba(0,0,0,0.7);
+		}
 }
-
-#ucPopupClose {
-margin-top: 0.5in;
-padding: 0.5em;
-background: rgba(255, 255, 0, 1);
-border: none;
-box-shadow: 0px 5px 4px 0px $fgMed;
-font-size: 1.5em;
-cursor: pointer;
+#slideshow {
+	z-index: -1;
 }
-
-#loginBox {
-	display: none;
-	background-color: $bgDark;
-	color: $fgDark;
-	font-size: 0.75em;
-	padding-left: 2.5em;
-	.logForm {
-		input {
-			border-radius: 5px;
-			margin: 1em;
-			padding: 0.1em 0.4em;
-			}
-		label {
-			min-width: 10em;
-			text-align: center;
-			margin: 1em;
-			}
-		.bLog {
-			background-color: $fgDark;
-			color: $bgDark;
-			font-weight: bold;
-			border: none;
-			border-radius: 5px;
-			padding: 0.3em 0.8em;
-			cursor: pointer;
-			&:hover {
-				color: black;
-				}
-			}
-		#loginAlert {
-			color: #aaffaa;
+.slide {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	a {
+		text-decoration: none;
+		}
+}
+.slideGrad {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%);
+}
+.caption {
+	font-family: Verdana, Arial, sans-serif;
+	text-decoration: none;
+	font-size: 3em;
+	@include respond-to($breakpointType, $breakpoint3) {
+		font-size: 2em;
+		}
+	@include respond-to($breakpointType, $breakpoint2) {
+		font-size: 1.5em;
+		}
+	font-variant: small-caps;
+	color: #ffffff;
+	margin: 0.65em 0 0 1em;
+	position: relative;
+	white-space: nowrap;
+	text-align: left;
+	transition: text-shadow 0.5s, color 0.5s;
+	z-index: 1;
+	&:hover {
+		text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+		color: #ffffaa
+		}
+	}
+.subcap {
+	font-family: Verdana, Arial, sans-serif;
+	text-decoration: none;
+	text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+	font-size: 1em;
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+	width: 100%;
+	padding: 0.5em 0.5em 0.8em 0.8em;
+	white-space: nowrap;
+	text-align: left;
+	transition: text-shadow 0.5s, color 0.25s;
+	&:hover {
+		text-shadow: 0px 0px 50px rgba(0, 0, 255, 1);
+		color: #00ffff;
+		}
+	}
+.btnNav  {
+	position: relative;
+	height: 100%;
+	top: 0px;
+	padding: 0;
+	vertical-align: top;
+	cursor: pointer;
+	background: transparent;
+	border: none !important;
+	outline: none !important;
+	z-index: 0;
+	svg {
+		opacity: 0.0;
+		transition: opacity 0.25s, transform 0.05s;
+		}
+	.svgNavB {
+		height: 80px;
+		width: 80px;
+		}
+	.svgNavB2 {
+		height: 120px;
+		width: 120px;
+		}
+	.btnHide {
+		visibiity: hidden;
+		}
+	}
+.btnPrevSlide {
+	float: left;
+	svg {
+		transform: scale(-1,1);
+	&:hover {
+		transform: scale(-1.1,1.1);
 			}
 		}
 	}
-
-#logoutForm {
-	display: none;
+.btnNextSlide {
+	float: right;
+	svg:hover {
+		transform: scale(1.1,1.1);
+		}
 	}

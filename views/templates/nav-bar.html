@@ -1,21 +1,27 @@
+<!--  Main navbar stuff -->
 <div class="navdiv inner">
 	<ul class="navlist">
-		<li><a id="aHamburger">
+		<li><a id="aDropdown" ng-href="#" href="#">
 			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
 					xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use xlink:href="#navDownArrow"/>
 			</svg></a></li>
-		<li><a ng-href="#/blog">
+		<li><a ng-href="#/home">
 			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
 					xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use xlink:href="#navHome"/>
+			</svg><span>HOME</span></a></li>
+		<li><a ng-href="#/blog">
+			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
+					xmlns:xlink="http://www.w3.org/1999/xlink">
+					<use xlink:href="#navBlog"/>
 			</svg><span>BLOG</span></a></li>
 		<li><a ng-href="#/resume">
 			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
 					xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use xlink:href="#navResume"/>
 			</svg><span>RESUME</span></a></li>
-		<li><a ng-href="#/musicapp">
+		<!--li><a ng-href="#/musicapp">
 			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
 					xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use xlink:href="#navMusic"/>
@@ -24,21 +30,21 @@
 			<svg class="svgNavHome" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" version="v1.1"
 					xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use xlink:href="#navGallery"/>
-			</svg><span>MUSIC GALLERY</span></a></li>
-		<!--li><a href="detailpage.html">DETAIL PAGE</a></li>
-		<li><a href="alternate.html">ALTERNATE STYLE</a></li>
-		<li><a href="Canvas/index.html">CANVAS</a></li-->
+			</svg><span>MUSIC GALLERY</span></a></li-->
 	</ul>
-	<div id="loginBox">
+</div>
+
+<!-- Login mini-form that appears when the drop-down arrow is clicked -->
+<div id="loginBox">
 		<form id="loginForm" class="logForm">
-			<label>USERNAME</label><input id="username" required autofocus></input>
-			<label>PASSWORD</label><input type="password" id="password" required></input>
-			<input type="submit" id="bLogin" class="bLog" value="LOGIN"/>
-			<span id="loginAlert"></span>
+			<div id="dUser"><label>USERNAME</label><input id="username" required autofocus></input></div>
+			<div id="dPass"><label>PASSWORD</label><input type="password" id="password" required></input></div>
+			<div><input type="submit" id="bLogin" class="bLog" value="LOGIN"/></div>
+			<div><span id="loginAlert"></span></div>
 		</form>
 		<form id="logoutForm" class="logForm">
 			<label id="loginMessage">Logged in as {{username}}</label>
 			<input type="submit" id="bLogout" class="bLog" value="LOGOUT"/>
+			<input type="button" id="showCrud" class="bLog" value="BLOG DB"/>
 		</form>
-	</div>
 </div>

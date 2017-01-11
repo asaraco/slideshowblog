@@ -12,7 +12,7 @@ angular.module('MyPortfolio').directive("navBar", ['BlogServ', function(BlogServ
 			var isHeadShort = false;
 				
 			// Make navigation links work for touch; also scroll back up
-			$(".navdiv a, .slide a").on("touchend", function(event) {
+			$(".navdiv a:not('#aDropdown'), .slide a").on("touchend", function(event) {
 				window.location.href = $(this).attr("href");
 				win.scrollTop(0);
 			})
@@ -46,18 +46,20 @@ angular.module('MyPortfolio').directive("navBar", ['BlogServ', function(BlogServ
 			});
 			
 			// Hamburger & Login button
-			$('#aHamburger').on('click', function() {
+			$('#aDropdown').on('click', function(ev) {
+				ev.preventDefault();
 				$('#loginBox').slideToggle();
 				$('#loginForm').on('submit', function(e) {
 					e.preventDefault();
-					var rPromise = BlogServ.getUser('http://asaraco.net:3000/login', { "username": $('#username').val(), "password": $('#password').val() });
+					var rPromise = BlogServ.getUser('http://' + location.host + ':3000/login', { "username": $('#username').val(), "password": $('#password').val() });
 					rPromise.done(function(result) {
 						scope.username = result;
 						console.log(scope.username);
 						if (scope.username) {
 							$('#loginForm').hide();
 							$('#logoutForm').fadeIn();
-							$('blog-crud').slideDown();
+							/* Display edit bar */
+							$('#editBar').fadeIn();
 						} else {
 							$('#loginAlert').text("Username/password combination not found");
 						}
@@ -68,71 +70,38 @@ angular.module('MyPortfolio').directive("navBar", ['BlogServ', function(BlogServ
 					scope.username = null;
 					$('#logoutForm').hide();
 					$('#loginForm').fadeIn();
+					$('#editBar').fadeOut();
 				});
 			});
 			
-			/*
-			// Fade in hamburger menu after scrolling
-			//win.scroll(function() {
-				win.on('touchend', function() {
-					$('#hamburger-menu').fadeIn();
+			// Blog DB button
+			$('#showCrud').on('click', function(ev) {
+				ev.preventDefault();
+				$('blog-crud').fadeIn();
+				//Initializing the key selection dropdown
+				var dQ = { "username": scope.username };
+				//var dP = { "key": true };
+				var dP = { };
+				var dataobj = { dQuery: dQ, dProjection: dP };
+				console.log(dataobj);
+				var allKeys;
+				$.ajax('http://' + location.host + ':3000/reviews2', {
+					type: 'GET',
+					dataType: 'json',
+					data: { dQuery: dQ, dProjection: dP },
+					success: function(data) {
+						if (data[0]) {
+							//If data exists, bind to a scope object, and $apply so the dropdown is updated
+							scope.reviewsByUser = data;
+							//scope.reviewSelected = scope.reviewsByUser[0];
+							scope.$apply();
+						} else {
+							$('#blogAlert').removeClass('ok').addClass('error').fadeIn().css("visibility", "visible");
+							$('#blogAlert span').text("No blog entries found.");
+						}
+					}
 				});
-			//});
-			
-			// Sidebar popup menu visibility/animation
-			var menuOpen = false;
-			
-			$('#hamburger-menu').on('touchend', function() {
-				if (!menuOpen) {
-					$('#sidebar').fadeIn();
-					$('#sidebar ul li:nth-child(1)').animate({"right": "80%"}, "medium");
-					$('#sidebar ul li:nth-child(2)').animate({"right": "61%"}, "medium");
-					$('#sidebar ul li:nth-child(3)').animate({"right": "42%"}, "medium");
-					$('#sidebar ul li:nth-child(4)').animate({"right": "24%"}, "medium");
-					menuOpen = true;
-				} else {
-					$('#sidebar ul li:nth-child(1)').animate({"right": "0.5in"}, "medium");
-					$('#sidebar ul li:nth-child(2)').animate({"right": "0.5in"}, "medium");
-					$('#sidebar ul li:nth-child(3)').animate({"right": "0.5in"}, "medium");
-					$('#sidebar ul li:nth-child(4)').animate({"right": "0.5in"}, "medium");
-					$('#sidebar').fadeOut();
-					menuOpen = false;
-				}
 			});
-			
-			// Close sidebar menu if you tap anywhere outside it
-			$(':not(#sidebar):not(#hamburger-menu)').on('touchstart', function() {
-				if (menuOpen) {
-					$('#sidebar ul li:nth-child(1)').animate({"right": "0.5in"}, "medium");
-					$('#sidebar ul li:nth-child(2)').animate({"right": "0.5in"}, "medium");
-					$('#sidebar ul li:nth-child(3)').animate({"right": "0.5in"}, "medium");
-					$('#sidebar ul li:nth-child(4)').animate({"right": "0.5in"}, "medium");
-					$('#sidebar').fadeOut();
-					menuOpen = false;
-				}
-			});
-			
-			// Sidebar popup menu visibility/animation
-			var menuOpen = false;
-			$('#hamburger-menu').on('click touchend', function() {
-				if (menuOpen) {
-					$('#sidebar').slideUp("fast", function() { menuOpen = false; });
-				} else {
-					console.log($('.heading').css("top"));
-					console.log($('.heading').css("height"));
-					console.log($('.heading').height());
-					var currTop = $('.heading').css("top") + $('.heading').css("height");
-					console.log(currTop);
-					$('#sidebar').css("top", "8em");
-					$('#sidebar').slideDown("fast", function() { menuOpen = true; });
-				}
-			});
-			// Close sidebar menu if you click anywhere outside it
-			$(':not(#sidebar)').on('click touchstart', function() {
-				if (menuOpen) {
-					$('#sidebar').slideUp("fast", function() { menuOpen = false; });
-				}
-			});*/
 		}
 	};
 }]);
