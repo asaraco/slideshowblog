@@ -568,6 +568,8 @@ article, .articleEdit {
         max-width: 10%; }
       .blogSmall .blogType {
         margin-bottom: 10%; } }
+  .blogSmall .clearfixdiv {
+    clear: both; }
 
 blog-crud {
   display: none;
